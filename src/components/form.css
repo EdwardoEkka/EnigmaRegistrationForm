@@ -1,69 +1,117 @@
-/* .l1 {
-  background-image: url(https://res.cloudinary.com/startup-grind/image/upload/c_scale,w_2560/c_crop,h_640,w_2560,y_0.0_mul_h_sub_0.0_mul_640/c_crop,h_640,w_2560/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-dsc/event_banners/LIFTOFF-C%20%285335%20%C3%97%201043px%29%20%282560%20%C3%97%20650px%29.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-} */
-
 .form-container {
-  width: 90%;
-  max-width: 500px;
-
-  padding: 1%;
-  backdrop-filter: blur(4px) saturate(158%);
-  -webkit-backdrop-filter: blur(4px) saturate(158%);
-  background-color: rgba(155, 162, 173, 0.39);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  background: rgba(255,255,255,0.3);
+  -webkit-backdrop-filter: blur(11px);
+  backdrop-filter: blur(11px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  max-width: 550px;
+  width: 100%;
+ 
 }
 
 h1 {
-  color: #fbf8f8;
+color: #161414;
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 20px;
   text-align: center;
-
 }
 
 label {
+  font-size: 20px;
   display: block;
   margin-bottom: 8px;
-  width: 400px; 
-
-  color: #f4eeee;
+  color: #110c0c;
 }
 
 input {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   box-sizing: border-box;
-  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #5cb85c;
+}
+
+.error {
+  color: #dc150e;
+  font-size: 14px;
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
 
 button {
-  background-color: #4caf50;
+  background-color: #5cb85c;
   color: #fff;
-  font-weight: bolder;
-  padding: 15px;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 19px;
   transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #09ee15;
+  background-color: #4cae4c;
+}
+.contact-us {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 600px) {
-  .form-container{
+.contact-us h2 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contact-us p {
+  color: #555;
+  font-size: 16px;
+  margin: 5px 0;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+
+@media (max-width: 800px) {
+  .form-container {
+    margin-top: 80px;
     width: 80%;
+    padding: 0 10px; 
+    
+  }
+
+  img {
+    width: 60px; 
+    height: 60px; 
+    position: absolute;
+    top: 10px;
+    left: 10px;
   }
   label {
-    width: 100%; 
-  }
-  button{
-    font-size: 10px;
+    font-size: 14px;
   }
 }
