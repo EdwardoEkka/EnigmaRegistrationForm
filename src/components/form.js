@@ -41,20 +41,46 @@ const Form = () => {
     email: "",
     contact: "",
   });
+  const branchOptions = [
+    "Chemical Engineering",
+    "Civil Engineering",
+    "Computer Science and Engineering",
+    "Electrical Engineering",
+    "Electrical and Electronics Engineering",
+    "Information Technology",
+    "Mechanical Engineering",
+    "Electonics and Telecommunication Engineering",
+    "Production Engineering"
+  ];
+  const sectionOptions = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M"
+  ];
 
   const handleInputChange = (event) => {
     const { id, value } = event.target;
-    const parsedValue = id === "contact" ? parseInt(value, 10) : value;
-
+  
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [id]: parsedValue,
+      [id]: value,
     }));
     setFormErrors((prevFormErrors) => ({
       ...prevFormErrors,
-      [id]: "", 
+      [id]: "",
     }));
   };
+  
   const validateForm = () => {
     let isValid = true;
     const errors = {};
@@ -77,6 +103,10 @@ const Form = () => {
       }
       if (key === "contact" && (!/^\d{10}$/.test(value))) {
         errors.contact = "Contact number should be a 10-digit number";
+        isValid = false;
+      }
+      if (key === "regd" && (!/^\d{10}$/.test(value))) {
+        errors.regd = "Registration number should be a 10-digit number";
         isValid = false;
       }
     }
@@ -120,6 +150,14 @@ const Form = () => {
         setResponseData(putData);
         
         toast.success("Registration successful!");
+        setFormData({
+          name: "",
+          regd: "",
+          branch: "",
+          section: "",
+          email: "",
+          contact: "",
+        });
        
       }
     });
@@ -141,11 +179,7 @@ const Form = () => {
       <div
         className="form-container"
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "left",
-          flexDirection: "column",
-          marginTop: "70px", 
+          
         }}
       >
         
@@ -179,24 +213,38 @@ const Form = () => {
         </div>
         <div>
           <label htmlFor="branch">Branch:</label>
-          <input
+          <select
             id="branch"
             onChange={handleInputChange}
             value={formData.branch}
-          />
+          >
+            <option value="">Select Branch</option>
+            {branchOptions.map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
           {formErrors.branch && <span className="error">{formErrors.branch}</span>}
         </div>
         <div>
           <label htmlFor="section">Section:</label>
-          <input
+          <select
             id="section"
             onChange={handleInputChange}
             value={formData.section}
-          />
+          >
+            <option value="">Select section</option>
+            {sectionOptions.map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+              ))}
+              </select>
           {formErrors.section && <span className="error">{formErrors.section}</span>}
         </div>
         <div>
-          <label htmlFor="contact">Whatsapp no:</label>
+          <label htmlFor="contact">Whatsap no:</label>
           <input
             id="contact"
             onChange={handleInputChange}
@@ -205,6 +253,12 @@ const Form = () => {
           {formErrors.contact && <span className="error">{formErrors.contact}</span>}
         </div>
         <button style={{fontFamily:"cursive"}} onClick={handleSubmit}>Submit</button>
+        <div className="contact-us">
+          <h2>Contact Us</h2>
+          <p>If you have any queries, please feel free to contact us:</p>
+          <p>Email: info@example.com</p>
+          <p>Phone: +123 456 7890</p>
+        </div>
         <div style={{ position: 'absolute', top: 0, right: 0 ,fontSize:"25px"}}>
         <Toaster position="top-right" />
       </div>

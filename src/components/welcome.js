@@ -66,16 +66,17 @@ const Welcome = () => {
 
 
       
-      <div class="foo">
-        <button
-          style={{ marginBottom: "3px" }}
-          onClick={() => {
-            navigate("/form");
-          }}
-        >
-          Proceed To Registration
-        </button>
-      </div>
+    <div className="foo" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+  <button
+    style={{ marginBottom: "3px" }}
+    onClick={() => {
+      navigate("/form");
+    }}
+  >
+    Proceed To Registration
+  </button>
+</div>
+
     </div>
   );
 };
