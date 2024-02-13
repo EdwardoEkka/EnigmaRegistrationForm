@@ -4,11 +4,10 @@ import AWS from "aws-sdk";
 import { toast, Toaster } from "react-hot-toast";
 import "./form.css";
 import logo from "../components/images/EnigmaLogo.png";
-// require('dotenv').config()
 
-const AWS_ACCESS_KEY_ID = "process.env.AWS_ACCESS_KEY_ID";
-const AWS_SECRET_ACCESS_KEY = "process.env.AWS_SECRET_ACCESS_KEY";
-const AWS_REGION = "process.env.AWS_REGION ";
+const AWS_ACCESS_KEY_ID = "AKIAXYKJT7OCKNTDZC6G";
+const AWS_SECRET_ACCESS_KEY = "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";
+const AWS_REGION = "ap-south-1";
 
 AWS.config.update({
   region: AWS_REGION,
