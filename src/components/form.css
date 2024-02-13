@@ -1,14 +1,14 @@
-.l1 {
+/* .l1 {
   background-image: url(https://res.cloudinary.com/startup-grind/image/upload/c_scale,w_2560/c_crop,h_640,w_2560,y_0.0_mul_h_sub_0.0_mul_640/c_crop,h_640,w_2560/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-dsc/event_banners/LIFTOFF-C%20%285335%20%C3%97%201043px%29%20%282560%20%C3%97%20650px%29.png);
   background-size: cover;
   background-repeat: no-repeat;
-}
+} */
 
 .form-container {
   width: 90%;
   max-width: 500px;
-  margin: 5% auto;
-  padding: 5%;
+
+  padding: 1%;
   backdrop-filter: blur(4px) saturate(158%);
   -webkit-backdrop-filter: blur(4px) saturate(158%);
   background-color: rgba(155, 162, 173, 0.39);

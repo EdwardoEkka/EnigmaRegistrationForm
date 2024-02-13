@@ -4,6 +4,7 @@ import AWS from "aws-sdk";
 import { toast, Toaster } from "react-hot-toast";
 import "./form.css";
 import logo from "../components/images/EnigmaLogo.png";
+import Matrix from "./Matrix";
 
 const AWS_ACCESS_KEY_ID = "AKIAXYKJT7OCKNTDZC6G";
 const AWS_SECRET_ACCESS_KEY = "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";
@@ -133,6 +134,9 @@ const Form = () => {
         flexDirection: "column",
       }}
     >
+       <div className="matrix-container">
+        <Matrix />
+      </div>
       <img src={logo} alt="Logo" style={{ height: "80px", width: "80px", position: "absolute", top: 0, left: 0 }} />
       <div
         className="form-container"
