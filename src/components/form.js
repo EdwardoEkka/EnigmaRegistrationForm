@@ -207,12 +207,12 @@ const Form = () => {
           />
 
           <TextField
-            id="regd"
-            label="Registration No."
-            value={formData.regd}
-            onChange={(event) => handleInputChange(event, "regd")}
-            error={!!formErrors.regd}
-            helperText={formErrors.regd}
+            id="email"
+            label="Email"
+            value={formData.email}
+            onChange={(event) => handleInputChange(event, "email")}
+            error={!!formErrors.email}
+            helperText={formErrors.email}
           />
           <TextField
             id="regd"
