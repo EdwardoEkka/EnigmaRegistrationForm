@@ -216,38 +216,40 @@ const Form = () => {
           />
           {formErrors.regd && <span className="error">{formErrors.regd}</span>}
         </div>
-        <div>
-          <label htmlFor="branch">Branch:</label>
-          <select
-            id="branch"
-            onChange={handleInputChange}
-            value={formData.branch}
-          >
-            <option value="">Select Branch</option>
-            {branchOptions.map((option, index) => (
-              <option key={index} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          {formErrors.branch && <span className="error">{formErrors.branch}</span>}
-        </div>
-        <div>
-          <label htmlFor="section">Section:</label>
-          <select
-            id="section"
-            onChange={handleInputChange}
-            value={formData.section}
-          >
-            <option value="">Select section</option>
-            {sectionOptions.map((option, index) => (
-              <option key={index} value={option}>
-                {option}
-              </option>
-              ))}
-              </select>
-          {formErrors.section && <span className="error">{formErrors.section}</span>}
-        </div>
+        <div style={{ display: 'flex', gap: '10px' }}>
+    <div style={{ flex: 1 }}>
+      <label htmlFor="branch">Branch:</label>
+      <select
+        id="branch"
+        onChange={handleInputChange}
+        value={formData.branch}
+      >
+        <option value="">Select Branch</option>
+        {branchOptions.map((option, index) => (
+          <option key={index} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+      {formErrors.branch && <span className="error">{formErrors.branch}</span>}
+    </div>
+    <div style={{ flex: 1 }}>
+      <label htmlFor="section">Section:</label>
+      <select
+        id="section"
+        onChange={handleInputChange}
+        value={formData.section}
+      >
+        <option value="">Select Section</option>
+        {sectionOptions.map((option, index) => (
+          <option key={index} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+      {formErrors.section && <span className="error">{formErrors.section}</span>}
+    </div>
+  </div>
         <div>
           <label htmlFor="contact">Whatsapp no:</label>
           <input
