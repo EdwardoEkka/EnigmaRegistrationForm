@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-
-import AWS from "aws-sdk";
+import {
+  TextField,
+  Button,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  FormHelperText,
+} from "@mui/material";
 import { toast, Toaster } from "react-hot-toast";
+import AWS from "aws-sdk";
 import "./form.css";
 import logo from "../components/images/EnigmaLogo.png";
 import Matrix from "./Matrix";
@@ -21,9 +29,7 @@ AWS.config.update({
 const docClient = new AWS.DynamoDB.DocumentClient();
 
 const Form = () => {
-
   const [responseData, setResponseData] = useState(null);
-
   const [formData, setFormData] = useState({
     name: "",
     regd: "",
@@ -32,7 +38,6 @@ const Form = () => {
     email: "",
     contact: "",
   });
-
   const [formErrors, setFormErrors] = useState({
     name: "",
     regd: "",
@@ -41,6 +46,7 @@ const Form = () => {
     email: "",
     contact: "",
   });
+
   const branchOptions = [
     "Chemical Engineering",
     "Civil Engineering",
@@ -51,7 +57,6 @@ const Form = () => {
     "Mechanical Engineering",
     "Electonics and Telecommunication Engineering",
     "Production Engineering",
-    "Metallurgy and Material Engineering"
   ];
   const sectionOptions = [
     "A",
@@ -67,56 +72,54 @@ const Form = () => {
     "K",
     "L",
     "M",
-    "N"
   ];
 
-  const handleInputChange = (event) => {
-    const { id, value } = event.target;
-  
+  const handleInputChange = (event, key) => {
+    const { value } = event.target;
+
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [id]: value,
+      [key]: value,
     }));
+
     setFormErrors((prevFormErrors) => ({
       ...prevFormErrors,
-      [id]: "",
+      [key]: "",
     }));
   };
-  
+
   const validateForm = () => {
     let isValid = true;
     const errors = {};
-  
-   
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
+
     for (const key in formData) {
       const value = formData[key];
-  
-      if (typeof value === 'string' && value.trim() === "") {
-        errors[key] = `${key.charAt(0).toUpperCase() + key.slice(1)} is required`;
+
+      if (typeof value === "string" && value.trim() === "") {
+        errors[key] = `${
+          key.charAt(0).toUpperCase() + key.slice(1)
+        } is required`;
         isValid = false;
       }
-  
-     
+
       if (key === "email" && !emailRegex.test(value.trim())) {
         errors.email = "Invalid email format";
         isValid = false;
       }
-      if (key === "contact" && (!/^\d{10}$/.test(value))) {
+      if (key === "contact" && !/^\d{10}$/.test(value)) {
         errors.contact = "Contact number should be a 10-digit number";
         isValid = false;
       }
-      if (key === "regd" && (!/^\d{10}$/.test(value))) {
+      if (key === "regd" && !/^\d{10}$/.test(value)) {
         errors.regd = "Registration number should be a 10-digit number";
         isValid = false;
       }
     }
-  
+
     setFormErrors(errors);
     return isValid;
   };
-  
 
   const handleSubmit = () => {
     if (validateForm()) {
@@ -150,7 +153,6 @@ const Form = () => {
         toast.error("Registration failed. Please try again.");
       } else {
         setResponseData(putData);
-        
         toast.success("Registration successful!");
         setFormData({
           name: "",
@@ -160,117 +162,142 @@ const Form = () => {
           email: "",
           contact: "",
         });
-       
       }
     });
   };
 
   return (
     <>
-    <div className="matrix-container">
-        <Matrix />
-      </div>
-    <div class="l1"
-      style={{
-      
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-      }}
-    >
-      
-      <img src={logo} alt="Logo" style={{ height: "80px", width: "80px", position: "fixed", top: 0, left: 0 }} />
       <div
-        className="form-container"
+        className="l1"
         style={{
-          
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
         }}
       >
-        
-        <div>
+        <div className="matrix-container">
+          <Matrix />
+        </div>
+        <img
+          src={logo}
+          alt="Logo"
+          style={{
+            height: "80px",
+            width: "80px",
+            position: "absolute",
+            top: 0,
+            left: 0,
+          }}
+        />
+        <div
+          className="form-container"
+          style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+        >
           <h1>Registration Form</h1>
-          <label htmlFor="name">Name:</label>
-          <input
+          <TextField
             id="name"
-            onChange={handleInputChange}
+            label="Name"
             value={formData.name}
+            onChange={(event) => handleInputChange(event, "name")}
+            error={!!formErrors.name}
+            helperText={formErrors.name}
+            style={{ marginBottom: "10px" }}
           />
-          {formErrors.name && <span className="error">{formErrors.name}</span>}
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            id="email"
-            onChange={handleInputChange}
-            value={formData.email}
-          />
-          {formErrors.email && <span className="error">{formErrors.email}</span>}
-        </div>
-        <div>
-          <label htmlFor="regd">Registration No.:</label>
-          <input
+
+          <TextField
             id="regd"
-            onChange={handleInputChange}
+            label="Registration No."
             value={formData.regd}
+            onChange={(event) => handleInputChange(event, "regd")}
+            error={!!formErrors.regd}
+            helperText={formErrors.regd}
           />
-          {formErrors.regd && <span className="error">{formErrors.regd}</span>}
-        </div>
-        <div style={{ display: 'flex', gap: '10px' }}>
-    <div style={{ flex: 1 }}>
-      <label htmlFor="branch">Branch:</label>
-      <select
-        id="branch"
-        onChange={handleInputChange}
-        value={formData.branch}
-      >
-        <option value="">Select Branch</option>
-        {branchOptions.map((option, index) => (
-          <option key={index} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-      {formErrors.branch && <span className="error">{formErrors.branch}</span>}
-    </div>
-    <div style={{ flex: 1 }}>
-      <label htmlFor="section">Section:</label>
-      <select
-        id="section"
-        onChange={handleInputChange}
-        value={formData.section}
-      >
-        <option value="">Select Section</option>
-        {sectionOptions.map((option, index) => (
-          <option key={index} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-      {formErrors.section && <span className="error">{formErrors.section}</span>}
-    </div>
-  </div>
-        <div>
-          <label htmlFor="contact">Whatsapp no:</label>
-          <input
+          <TextField
+            id="regd"
+            label="Registration No."
+            value={formData.regd}
+            onChange={(event) => handleInputChange(event, "regd")}
+            error={!!formErrors.regd}
+            helperText={formErrors.regd}
+          />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            {/* Branch */}
+            <FormControl error={!!formErrors.branch} style={{ width: "48%" }}>
+              <InputLabel id="branch-label">Branch</InputLabel>
+              <Select
+                labelId="branch-label"
+                id="branch"
+                value={formData.branch}
+                label="Branch"
+                onChange={(event) => handleInputChange(event, "branch")}
+              >
+                <MenuItem value="" disabled>
+                  <em>Select Branch</em>
+                </MenuItem>
+                {branchOptions.map((option, index) => (
+                  <MenuItem key={index} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+              <FormHelperText>{formErrors.branch}</FormHelperText>
+            </FormControl>
+
+            {/* Section */}
+            <FormControl error={!!formErrors.section} style={{ width: "48%" }}>
+              <InputLabel id="section-label">Section</InputLabel>
+              <Select
+                labelId="section-label"
+                id="section"
+                value={formData.section}
+                label="Section"
+                onChange={(event) => handleInputChange(event, "section")}
+              >
+                <MenuItem value="" disabled>
+                  <em>Select Section</em>
+                </MenuItem>
+                {sectionOptions.map((option, index) => (
+                  <MenuItem key={index} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+              <FormHelperText>{formErrors.section}</FormHelperText>
+            </FormControl>
+          </div>
+          <TextField
             id="contact"
-            onChange={handleInputChange}
+            label="Whatsapp No."
             value={formData.contact}
+            onChange={(event) => handleInputChange(event, "contact")}
+            error={!!formErrors.contact}
+            helperText={formErrors.contact}
           />
-          {formErrors.contact && <span className="error">{formErrors.contact}</span>}
+          <Button variant="contained" onClick={handleSubmit}>
+            Submit
+          </Button>
+
+          <div className="contact-us">
+            <h2>Contact Us</h2>
+            <p>If you have any queries, please feel free to contact us:</p>
+            <p>Email: info@example.com</p>
+            <p>Phone: +123 456 7890</p>
+          </div>
+          <div
+            style={{ position: "absolute", top: 0, right: 0, fontSize: "25px" }}
+          >
+            <Toaster position="top-right" />
+          </div>
         </div>
-        <button onClick={handleSubmit}>Submit</button>
-        <div className="contact-us">
-          <h2>Contact Us</h2>
-          <p>If you have any queries, please feel free to contact us:</p>
-          <p>Email: info@example.com</p>
-          <p>Phone: +123 456 7890</p>
-        </div>
-        <div style={{ position: 'absolute', top: 0, right: 0 ,fontSize:"25px"}}>
-        <Toaster position="top-right" />
       </div>
-      </div>
-    </div>
     </>
   );
 };
