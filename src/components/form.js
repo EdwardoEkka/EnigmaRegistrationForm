@@ -50,7 +50,8 @@ const Form = () => {
     "Information Technology",
     "Mechanical Engineering",
     "Electonics and Telecommunication Engineering",
-    "Production Engineering"
+    "Production Engineering",
+    "Metallurgy and Material Engineering"
   ];
   const sectionOptions = [
     "A",
@@ -65,7 +66,8 @@ const Form = () => {
     "J",
     "K",
     "L",
-    "M"
+    "M",
+    "N"
   ];
 
   const handleInputChange = (event) => {
@@ -247,7 +249,7 @@ const Form = () => {
           {formErrors.section && <span className="error">{formErrors.section}</span>}
         </div>
         <div>
-          <label htmlFor="contact">Whatsap no:</label>
+          <label htmlFor="contact">Whatsapp no:</label>
           <input
             id="contact"
             onChange={handleInputChange}
