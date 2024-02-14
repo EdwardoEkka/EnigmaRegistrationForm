@@ -285,12 +285,12 @@ const Form = () => {
             Submit
           </Button>
 
-          <div className="contact-us">
+          {/* <div className="contact-us">
             <h2>Contact Us</h2>
             <p>If you have any queries, please feel free to contact us:</p>
             <p>Email: info@example.com</p>
             <p>Phone: +123 456 7890</p>
-          </div>
+          </div> */}
           <div
             style={{ position: "absolute", top: 0, right: 0, fontSize: "25px" }}
           >
