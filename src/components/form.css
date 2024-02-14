@@ -7,7 +7,7 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   padding: 20px;
   border-radius: 8px;
-  margin-top: 20px;
+  margin: 20px;
   max-width: 550px;
   width: 100%;
  
@@ -68,6 +68,7 @@ button:hover {
 }
 .contact-us {
   margin-top: 30px;
+  margin-bottom: 20px;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;

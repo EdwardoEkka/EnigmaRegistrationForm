@@ -164,17 +164,20 @@ const Form = () => {
   };
 
   return (
+    <>
+    <div className="matrix-container">
+        <Matrix />
+      </div>
     <div class="l1"
       style={{
+      
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
       }}
     >
-       <div className="matrix-container">
-        <Matrix />
-      </div>
+      
       <img src={logo} alt="Logo" style={{ height: "80px", width: "80px", position: "absolute", top: 0, left: 0 }} />
       <div
         className="form-container"
@@ -264,6 +267,7 @@ const Form = () => {
       </div>
       </div>
     </div>
+    </>
   );
 };
 
