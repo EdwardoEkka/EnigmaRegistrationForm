@@ -7,15 +7,21 @@ const Matrix = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
-  
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // Function to update canvas dimensions
+    const updateCanvasDimensions = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
 
-    
-    var letters = 'ENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMA';
+    // Initial canvas dimensions setup
+    updateCanvasDimensions();
+
+    // Event listener for window resize
+    window.addEventListener('resize', updateCanvasDimensions);
+
+    var letters = 'ENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMAENIGMA';
     letters = letters.split('');
 
-   
     var fontSize = 10,
         columns = canvas.width / fontSize;
 
@@ -38,11 +44,13 @@ const Matrix = () => {
       }
     }
 
-    
     const animationInterval = setInterval(draw, 33);
 
-    
-    return () => clearInterval(animationInterval);
+    // Cleanup function
+    return () => {
+      clearInterval(animationInterval);
+      window.removeEventListener('resize', updateCanvasDimensions);
+    };
   }, []);
 
   return <canvas ref={canvasRef} />;
