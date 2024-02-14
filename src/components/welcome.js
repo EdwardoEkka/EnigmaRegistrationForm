@@ -47,12 +47,12 @@ const Welcome = () => {
         className="logo-container"
         style={{
           position: "fixed",
-          top: "10px", 
-          left: "10px", 
+          top: "0px", 
+          left: "0px", 
           zIndex: "999", 
         }}
       >
-        <img src={logo} alt="Logo" style={{ height: "100px", width: "100px" }} />
+        <img src={logo} alt="Logo" style={{ height: "80px", width: "80px" }} />
       </div>
 
       
