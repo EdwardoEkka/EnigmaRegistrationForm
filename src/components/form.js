@@ -180,7 +180,7 @@ const Form = () => {
       }}
     >
       
-      <img src={logo} alt="Logo" style={{ height: "80px", width: "80px", position: "absolute", top: 0, left: 0 }} />
+      <img src={logo} alt="Logo" style={{ height: "80px", width: "80px", position: "fixed", top: 0, left: 0 }} />
       <div
         className="form-container"
         style={{
