@@ -257,7 +257,7 @@ const Form = () => {
           />
           {formErrors.contact && <span className="error">{formErrors.contact}</span>}
         </div>
-        <button style={{fontFamily:"cursive"}} onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit}>Submit</button>
         <div className="contact-us">
           <h2>Contact Us</h2>
           <p>If you have any queries, please feel free to contact us:</p>
