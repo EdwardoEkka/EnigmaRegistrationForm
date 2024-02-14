@@ -66,7 +66,7 @@ button {
 button:hover {
   background-color: #4cae4c;
 }
-.contact-us {
+/* .contact-us {
   margin-top: 30px;
   margin-bottom: 20px;
   padding: 20px;
@@ -85,7 +85,7 @@ button:hover {
   color: #555;
   font-size: 16px;
   margin: 5px 0;
-}
+} */
 select {
   width: 100%;
   padding: 10px;
