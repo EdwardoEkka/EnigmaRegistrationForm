@@ -124,6 +124,12 @@ h3::after {
   .card {
     width: 150px;
   }
+ img{
+  top:0;
+  left: 0;
+ }
+
+  
 
   .p2 {
     font-size: 16px;
