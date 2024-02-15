@@ -143,41 +143,68 @@ const Form = () => {
   const handleAddItem = () => {
     const uniqueNum = Date.now();
     const dateObject = new Date(uniqueNum);
-
-    const newItemParams = {
+  
+    
+    const scanParams = {
       TableName: "EnigmaForm",
-      Item: {
-        date: dateObject.toLocaleString(),
-        name: formData.name,
-        regd: formData.regd,
-        branch: formData.branch,
-        section: formData.section,
-        email: formData.email,
-        contact: formData.contact,
+      FilterExpression: "#email = :email",
+      ExpressionAttributeNames: {
+        "#email": "email",
+      },
+      ExpressionAttributeValues: {
+        ":email": formData.email,
       },
     };
-
-    docClient.put(newItemParams, (putErr, putData) => {
-      if (putErr) {
-        console.error(
-          "Unable to add item. Error JSON:",
-          JSON.stringify(putErr, null, 2)
-        );
+  
+    docClient.scan(scanParams, (scanErr, scanData) => {
+      if (scanErr) {
+        console.error("Error scanning DynamoDB:", scanErr);
         toast.error("Registration failed. Please try again.");
       } else {
-        setResponseData(putData);
-        toast.success("Registration successful!");
-        setFormData({
-          name: "",
-          regd: "",
-          branch: "",
-          section: "",
-          email: "",
-          contact: "",
-        });
+        if (scanData.Items.length > 0) {
+      
+          toast.error("Email is already registered. Please use a different email.");
+        } else {
+         
+          const newItemParams = {
+            TableName: "EnigmaForm",
+            Item: {
+              date: dateObject.toLocaleString(),
+              name: formData.name,
+              regd: formData.regd,
+              branch: formData.branch,
+              section: formData.section,
+              email: formData.email,
+              contact: formData.contact,
+            },
+          };
+  
+          docClient.put(newItemParams, (putErr, putData) => {
+            if (putErr) {
+              console.error(
+                "Unable to add item. Error JSON:",
+                JSON.stringify(putErr, null, 2)
+              );
+              toast.error("Registration failed. Please try again.");
+            } else {
+              setResponseData(putData);
+              toast.success("Registration successful!");
+              setFormData({
+                name: "",
+                regd: "",
+                branch: "",
+                section: "",
+                email: "",
+                contact: "",
+              });
+            }
+          });
+        }
       }
     });
   };
+  
+  
 
   return (
     <>
