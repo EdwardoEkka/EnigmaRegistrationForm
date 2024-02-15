@@ -1,10 +1,6 @@
 .form-container {
   margin-top: 2%;
-  /* backdrop-filter: blur(3px) saturate(173%);
-  -webkit-backdrop-filter: blur(3px) saturate(173%);
-  background-color: rgba(255, 255, 255, 0.46);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125); */
+  
   background-color: rgb(245, 247, 244);
   border-radius: 10px;
   border: 1px solid rgba(15, 8, 8, 0.18);
@@ -41,10 +37,18 @@ input {
 }
 
 input:focus {
-  outline: none;
+  outline: none !important;;
   border-color: #5cb85c;
 }
+input:focus,
+select:focus {
+  border-color: #006400 !important; /* Dark green color */
+ /* Optional: Add a subtle box shadow on focus */
+  outline: none !important; /* Remove the default blue outline */
+}
+label:focus{
 
+border-color: #1e8449;}
 /* .error {
   color: #dc150e;
   font-size: 1px;

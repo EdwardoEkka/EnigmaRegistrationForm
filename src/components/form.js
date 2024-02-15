@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+
 import {
   TextField,
 
@@ -13,6 +15,15 @@ import AWS from "aws-sdk";
 import "./form.css";
 import logo from "../components/images/EnigmaLogo.png";
 import Matrix from "./Matrix";
+
+
+
+
+
+
+
+
+
 
 const AWS_ACCESS_KEY_ID = "AKIAXYKJT7OCKNTDZC6G";
 const AWS_SECRET_ACCESS_KEY = "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";
@@ -198,14 +209,26 @@ const Form = () => {
         >
           <h1>Registration Form</h1>
           <TextField
-            id="name"
-            label="Name"
-            value={formData.name}
-            onChange={(event) => handleInputChange(event, "name")}
-            error={!!formErrors.name}
-            helperText={formErrors.name}
-            style={{ marginBottom: "10px" }}
-          />
+        id="name"
+        label="Name"
+        value={formData.name}
+        onChange={(event) => handleInputChange(event, "name")}
+        error={!!formErrors.name}
+        helperText={formErrors.name}
+        style={{ marginBottom: "10px" }}
+        InputLabelProps={{
+          style: { color: "green" }, 
+        }}
+        InputProps={{
+          style: {
+            borderColor: "green !important",
+            "&:focus": {
+              borderColor: "green !important",
+            },
+          },
+        }}
+        
+      />
 
           <TextField
             id="email"
@@ -214,6 +237,16 @@ const Form = () => {
             onChange={(event) => handleInputChange(event, "email")}
             error={!!formErrors.email}
             helperText={formErrors.email}
+            style={{ marginBottom: "10px" }}
+        InputLabelProps={{
+          style: { color: "green" }, // Change color to your desired color
+          focused: false, // To prevent the color from changing after clicking
+        }}
+        InputProps={{
+          style: { borderColor: "green" }, // Change color to your desired color
+          focused: false, // To prevent the color from changing after clicking
+        }}
+     
           />
           <TextField
             id="regd"
@@ -222,7 +255,17 @@ const Form = () => {
             onChange={(event) => handleInputChange(event, "regd")}
             error={!!formErrors.regd}
             helperText={formErrors.regd}
-          />
+            style={{ marginBottom: "10px" }}
+        InputLabelProps={{
+          style: { color: "green" }, 
+          focused: false, 
+        }}
+        InputProps={{
+          style: { borderColor: "green" },
+          focused: false,
+        }}
+      />
+          
           <div
             style={{
               display: "flex",
@@ -232,47 +275,73 @@ const Form = () => {
           >
             {/* Branch */}
             <FormControl error={!!formErrors.branch} style={{ width: "48%" }}>
-              <InputLabel id="branch-label">Branch</InputLabel>
-              <Select
-                labelId="branch-label"
-                id="branch"
-                value={formData.branch}
-                label="Branch"
-                onChange={(event) => handleInputChange(event, "branch")}
-              >
-                <MenuItem value="" disabled>
-                  <em>Select Branch</em>
-                </MenuItem>
-                {branchOptions.map((option, index) => (
-                  <MenuItem key={index} value={option}>
-                    {option}
-                  </MenuItem>
-                ))}
-              </Select>
-              <FormHelperText>{formErrors.branch}</FormHelperText>
-            </FormControl>
+  <InputLabel id="branch-label" style={{ color: "green" }}>
+    Branch
+  </InputLabel>
+  <Select
+    labelId="branch-label"
+    id="branch"
+    value={formData.branch}
+    label="Branch"
+    onChange={(event) => handleInputChange(event, "branch")}
+    InputLabelProps={{
+      style: { color: "green" },
+    }}
+    InputProps={{
+      style: {
+        borderColor: formErrors.branch ? "red" : "green",
+        "&:focus": {
+          borderColor: "green",
+        },
+      },
+    }}
+  >
+    <MenuItem value="" disabled>
+      <em>Select Branch</em>
+    </MenuItem>
+    {branchOptions.map((option, index) => (
+      <MenuItem key={index} value={option}>
+        {option}
+      </MenuItem>
+    ))}
+  </Select>
+  <FormHelperText>{formErrors.branch}</FormHelperText>
+</FormControl>
 
-            {/* Section */}
-            <FormControl error={!!formErrors.section} style={{ width: "48%" }}>
-              <InputLabel id="section-label">Section</InputLabel>
-              <Select
-                labelId="section-label"
-                id="section"
-                value={formData.section}
-                label="Section"
-                onChange={(event) => handleInputChange(event, "section")}
-              >
-                <MenuItem value="" disabled>
-                  <em>Select Section</em>
-                </MenuItem>
-                {sectionOptions.map((option, index) => (
-                  <MenuItem key={index} value={option}>
-                    {option}
-                  </MenuItem>
-                ))}
-              </Select>
-              <FormHelperText>{formErrors.section}</FormHelperText>
-            </FormControl>
+<FormControl error={!!formErrors.section} style={{ width: "48%" }}>
+  <InputLabel id="section-label" style={{ color: "green" }}>
+    Section
+  </InputLabel>
+  <Select
+    labelId="section-label"
+    id="section"
+    value={formData.section}
+    label="Section"
+    onChange={(event) => handleInputChange(event, "section")}
+    InputLabelProps={{
+      style: { color: "green" },
+    }}
+    InputProps={{
+      style: {
+        borderColor: formErrors.section ? "red" : "green",
+        "&:focus": {
+          borderColor: "green",
+        },
+      },
+    }}
+  >
+    <MenuItem value="" disabled>
+      <em>Select Section</em>
+    </MenuItem>
+    {sectionOptions.map((option, index) => (
+      <MenuItem key={index} value={option}>
+        {option}
+      </MenuItem>
+    ))}
+  </Select>
+  <FormHelperText>{formErrors.section}</FormHelperText>
+</FormControl>
+
           </div>
           <TextField
             id="contact"
@@ -281,17 +350,22 @@ const Form = () => {
             onChange={(event) => handleInputChange(event, "contact")}
             error={!!formErrors.contact}
             helperText={formErrors.contact}
-          />
+            style={{ marginBottom: "10px" }}
+        InputLabelProps={{
+          style: { color: "green" }, 
+          focused: false, 
+        }}
+        InputProps={{
+          style: { borderColor: "green" }, 
+          focused: false, 
+        }}
+      />
+          
           <button className="button-68" onClick={handleSubmit}>
             Submit
           </button>
 
-          {/* <div className="contact-us">
-            <h2>Contact Us</h2>
-            <p>If you have any queries, please feel free to contact us:</p>
-            <p>Email: info@example.com</p>
-            <p>Phone: +123 456 7890</p>
-          </div> */}
+       
           <div
             style={{ position: "absolute", top: 0, right: 0, fontSize: "25px" }}
           >
