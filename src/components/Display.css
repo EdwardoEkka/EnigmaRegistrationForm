@@ -1,12 +1,13 @@
 
 
   .typewriter {
-   
-    font-size: 11vw;
+   margin-top: 5%;
+    font-size: 120px;
     text-align: center;
     animation-name: example;
     animation-duration: 1s;
     animation-iteration-count: infinite;
+    margin-bottom: 4%;
   }
   
   @keyframes example {
@@ -49,8 +50,8 @@
   
   h1.animated-shadow {
     color: white;
-   
-    font-size: 4vw; 
+    
+    font-size: 3vw; 
     text-shadow: .03em .03em 0 #000;
     position: relative;
     overflow: hidden;
@@ -95,7 +96,8 @@
 }
 
 .countdown-value {
-    font-size: 9vw;
+  margin-top: 3%;
+    font-size: 6vw;
     font-weight: bold;
   
     color: #e3dbdb;
