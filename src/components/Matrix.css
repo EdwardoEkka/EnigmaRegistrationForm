@@ -1,0 +1,32 @@
+.form-container input:focus,
+.form-container select:focus {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+.form-container button:hover {
+    background-color: #4caf50;
+    color: white;
+  }
+  @keyframes buttonClick {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  .form-container button:active {
+    animation: buttonClick 0.3s ease;
+  }
+  .form-container label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .form-container input:focus + label,
+  .form-container select:focus + label {
+    transform: translate(0, -25px);
+    font-size: 12px;
+  }
+      

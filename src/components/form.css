@@ -1,14 +1,13 @@
 .form-container {
-  background: rgba(255,255,255,0.3);
-  -webkit-backdrop-filter: blur(11px);
-  backdrop-filter: blur(11px);
+  margin-top: 7%;
+background-color: #fff;
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   padding: 20px;
   border-radius: 8px;
-  margin: 20px;
-  max-width: 550px;
+  height: auto;
+  max-width: 500px;
   width: 100%;
  
 }
@@ -51,21 +50,7 @@ input:focus {
   margin-bottom: 10px;
 }
 
-button {
-  background-color: #5cb85c;
-  color: #fff;
-  text-align: center;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
 
-button:hover {
-  background-color: #4cae4c;
-}
 /* .contact-us {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -86,7 +71,7 @@ button:hover {
   font-size: 16px;
   margin: 5px 0;
 } */
-select {
+/* select {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -94,12 +79,11 @@ select {
   border-radius: 4px;
   box-sizing: border-box;
   transition: border-color 0.3s;
-}
+} */
 
 
 @media (max-width: 800px) {
   .form-container {
-    margin-top: 80px;
     width: 80%;
     padding: 0 10px; 
     
