@@ -7,11 +7,10 @@ background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   height: auto;
-  max-width: 0px;
+  max-width: 500px;
   width: 100%;
  
 }
-
 h1 {
 color: #161414;
   font-weight: bold;
