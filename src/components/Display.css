@@ -2,12 +2,12 @@
 
   .typewriter {
    margin-top: 3%;
-    font-size: 120px;
+    font-size: 115px;
     text-align: center;
     animation-name: example;
     animation-duration: 1s;
     animation-iteration-count: infinite;
-    margin-bottom: 3%;
+  
   }
   
   @keyframes example {
