@@ -68,6 +68,7 @@ const Form = () => {
     "Mechanical Engineering",
     "Electonics and Telecommunication Engineering",
     "Production Engineering",
+    "Metallurgy and material Engineering",
   ];
   const sectionOptions = [
     "A",
@@ -83,6 +84,7 @@ const Form = () => {
     "K",
     "L",
     "M",
+    "N",
   ];
 
   const handleInputChange = (event, key) => {
@@ -208,7 +210,7 @@ const Form = () => {
           style={{ display: "flex", flexDirection: "column", gap: "20px" }}
         >
           <h1>Registration Form</h1>
-          <TextField
+          <TextField type="text" color="success" defaultValue="success"
         id="name"
         label="Name"
         value={formData.name}
@@ -230,7 +232,7 @@ const Form = () => {
         
       />
 
-          <TextField
+          <TextField type="text" color="success" defaultValue="success"
             id="email"
             label="Email"
             value={formData.email}
@@ -239,16 +241,16 @@ const Form = () => {
             helperText={formErrors.email}
             style={{ marginBottom: "10px" }}
         InputLabelProps={{
-          style: { color: "green" }, // Change color to your desired color
-          focused: false, // To prevent the color from changing after clicking
+          style: { color: "green" },
+          focused: false, 
         }}
         InputProps={{
-          style: { borderColor: "green" }, // Change color to your desired color
-          focused: false, // To prevent the color from changing after clicking
+          style: { borderColor: "green" },
+          focused: false, 
         }}
      
           />
-          <TextField
+          <TextField type="text" color="success" defaultValue="success"
             id="regd"
             label="Registration No."
             value={formData.regd}
@@ -278,7 +280,7 @@ const Form = () => {
   <InputLabel id="branch-label" style={{ color: "green" }}>
     Branch
   </InputLabel>
-  <Select
+  <Select type="text" color="success" defaultValue="success"
     labelId="branch-label"
     id="branch"
     value={formData.branch}
@@ -312,7 +314,7 @@ const Form = () => {
   <InputLabel id="section-label" style={{ color: "green" }}>
     Section
   </InputLabel>
-  <Select
+  <Select type="text" color="success" defaultValue="success"
     labelId="section-label"
     id="section"
     value={formData.section}
@@ -343,7 +345,7 @@ const Form = () => {
 </FormControl>
 
           </div>
-          <TextField
+          <TextField type="text" color="success" defaultValue="success"
             id="contact"
             label="Whatsapp No."
             value={formData.contact}
@@ -361,7 +363,7 @@ const Form = () => {
         }}
       />
           
-          <button className="button-68" onClick={handleSubmit}>
+          <button className="button-18" onClick={handleSubmit}>
             Submit
           </button>
 
