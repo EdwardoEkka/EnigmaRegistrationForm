@@ -234,7 +234,7 @@ const Form = () => {
         />
         <div
           className="form-container"
-          style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+          style={{ display: "flex", flexDirection: "column", gap: "10px" }}
         >
           <h1>Registration Form</h1>
           <TextField type="text" color="success" defaultValue="success"
