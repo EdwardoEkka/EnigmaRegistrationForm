@@ -7,7 +7,7 @@ background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   height: auto;
-  max-width: 500px;
+  max-width: 0px;
   width: 100%;
  
 }
@@ -71,7 +71,7 @@ input:focus {
   font-size: 16px;
   margin: 5px 0;
 } */
-/* select {
+select {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -79,11 +79,12 @@ input:focus {
   border-radius: 4px;
   box-sizing: border-box;
   transition: border-color 0.3s;
-} */
+}
 
 
 @media (max-width: 800px) {
   .form-container {
+    margin-top: 80px;
     width: 80%;
     padding: 0 10px; 
     
