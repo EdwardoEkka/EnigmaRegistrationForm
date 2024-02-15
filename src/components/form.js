@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   TextField,
-  Button,
+
   Select,
   MenuItem,
   FormControl,
@@ -282,9 +282,9 @@ const Form = () => {
             error={!!formErrors.contact}
             helperText={formErrors.contact}
           />
-          <Button variant="contained" onClick={handleSubmit}>
+          <button className="button-68" onClick={handleSubmit}>
             Submit
-          </Button>
+          </button>
 
           {/* <div className="contact-us">
             <h2>Contact Us</h2>
