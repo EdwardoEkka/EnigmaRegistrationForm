@@ -67,8 +67,9 @@ const Form = () => {
     "Information Technology",
     "Mechanical Engineering",
     "Electonics and Telecommunication Engineering",
-    "Production Engineering",
     "Metallurgy and material Engineering",
+    "Production Engineering",
+   
   ];
   const sectionOptions = [
     "A",
