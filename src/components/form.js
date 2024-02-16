@@ -64,9 +64,9 @@ const Form = () => {
     "Computer Science and Engineering",
     "Electrical Engineering",
     "Electrical and Electronics Engineering",
+    "Electonics and Telecommunication Engineering",
     "Information Technology",
     "Mechanical Engineering",
-    "Electonics and Telecommunication Engineering",
     "Metallurgy and material Engineering",
     "Production Engineering",
    
