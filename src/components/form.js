@@ -302,7 +302,7 @@ const Form = () => {
               width: "100%",
             }}
           >
-            {/* Branch */}
+        
             <FormControl error={!!formErrors.branch} style={{ width: "48%" }}>
   <InputLabel id="branch-label" style={{ color: "green" }}>
     Branch
@@ -379,7 +379,7 @@ const Form = () => {
             onChange={(event) => handleInputChange(event, "contact")}
             error={!!formErrors.contact}
             helperText={formErrors.contact}
-            style={{ marginBottom: "10px" }}
+            style={{marginTop:"7px"}}
         InputLabelProps={{
           style: { color: "green" }, 
           focused: false, 
@@ -396,7 +396,7 @@ const Form = () => {
 
        
           <div
-            style={{ position: "absolute", top: 0, right: 0, fontSize: "25px" }}
+            style={{ position: "absolute", top: 0, right: 0, fontSize: "20px" }}
           >
             <Toaster position="top-right" />
           </div>
