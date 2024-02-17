@@ -182,14 +182,36 @@ const Form = () => {
               const emailData = {
                 to: formData.email,
                 subject: "Thanking you for registration  ",
-                text: "Welcome To Enigma",
+                text:"Welcome To Enigam",
                 html: `
                 <h1 style="text-align:center;">ENIGMA</h1>
-                <img src="cid:Poster1" alt="Enigma Poster" style="max-width: 100%;" />
-                <p>Best regards,</p>
-    <p>ENIGMA-VSSUT</p>
+                <img src ="Poster1.jpg" alt=""></img>
+                <a href="https://chat.whatsapp.com/IwGvJnfIK2V6MKQLcbVIOo"><button style="background-color: #13aa52;
+                border: 1px solid #13aa52;
+                border-radius: 4px;
+                box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+                box-sizing: border-box;
+                color: #fff;
+                cursor: pointer;
+                font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                outline: none;
+                outline: 0;
+                padding: 10px 25px;
+                text-align: center;
+                transform: translateY(0);
+                transition: transform 150ms, box-shadow 150ms;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+              "
+              
+              >Join Group</button</a>
 
-                <a href="https://chat.whatsapp.com/IwGvJnfIK2V6MKQLcbVIOo"><button style="background-color: green;>Join Group</button</a>`,
+
+   
+  `,
               };
 
               fetch(`https://enigma-form.onrender.com/send-email`, {
