@@ -185,7 +185,7 @@ const Form = () => {
                 text:"Welcome To Enigam",
                 html: `
                 <h1 style="text-align:center;">ENIGMA</h1>
-                <img src ="cid:Poster.jpg" alt=""></img>
+                <img src ="Poster1.jpg" alt=""></img>
                 <a href="https://chat.whatsapp.com/IwGvJnfIK2V6MKQLcbVIOo"><button style="background-color: #13aa52;
                 border: 1px solid #13aa52;
                 border-radius: 4px;
