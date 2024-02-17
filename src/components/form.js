@@ -14,10 +14,10 @@ import "./form.css";
 import logo from "../components/images/EnigmaLogo.png";
 import Matrix from "./Matrix";
 
-const AWS_ACCESS_KEY_ID = process.env.REACT_APP_AWS_ACCESS_KEY_ID;
-const AWS_SECRET_ACCESS_KEY = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY;
-const AWS_REGION = process.env.REACT_APP_AWS_REGION;
-const MAIL_API = process.env.MAIL_API;
+const AWS_ACCESS_KEY_ID = "AKIAXYKJT7OCKNTDZC6G";
+const AWS_SECRET_ACCESS_KEY = "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";
+const AWS_REGION = "ap-south-1";
+// const MAIL_API = process.env.MAIL_API;
 
 AWS.config.update({
   region: AWS_REGION,
