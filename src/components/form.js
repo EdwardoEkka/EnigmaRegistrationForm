@@ -67,7 +67,7 @@ const Form = () => {
     "Electonics and Telecommunication Engineering",
     "Information Technology",
     "Mechanical Engineering",
-    "Metallurgy and material Engineering",
+    "Metallurgy and materials Engineering",
     "Production Engineering",
    
   ];
