@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
-
 import {
   TextField,
-
   Select,
   MenuItem,
   FormControl,
@@ -16,18 +14,10 @@ import "./form.css";
 import logo from "../components/images/EnigmaLogo.png";
 import Matrix from "./Matrix";
 
-
-
-
-
-
-
-
-
-
-const AWS_ACCESS_KEY_ID = "AKIAXYKJT7OCKNTDZC6G";
-const AWS_SECRET_ACCESS_KEY = "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";
-const AWS_REGION = "ap-south-1";
+const AWS_ACCESS_KEY_ID = process.env.REACT_APP_AWS_ACCESS_KEY_ID;
+const AWS_SECRET_ACCESS_KEY = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY;
+const AWS_REGION = process.env.REACT_APP_AWS_REGION;
+const MAIL_API = process.env.MAIL_API;
 
 AWS.config.update({
   region: AWS_REGION,
@@ -69,7 +59,6 @@ const Form = () => {
     "Mechanical Engineering",
     "Metallurgy and materials Engineering",
     "Production Engineering",
-   
   ];
   const sectionOptions = [
     "A",
@@ -144,8 +133,7 @@ const Form = () => {
   const handleAddItem = () => {
     const uniqueNum = Date.now();
     const dateObject = new Date(uniqueNum);
-  
-    
+
     const scanParams = {
       TableName: "EnigmaForm",
       FilterExpression: "#email = :email",
@@ -156,17 +144,17 @@ const Form = () => {
         ":email": formData.email,
       },
     };
-  
+
     docClient.scan(scanParams, (scanErr, scanData) => {
       if (scanErr) {
         console.error("Error scanning DynamoDB:", scanErr);
         toast.error("Registration failed. Please try again.");
       } else {
         if (scanData.Items.length > 0) {
-      
-          toast.error("Email is already registered. Please use a different email.");
+          toast.error(
+            "Email is already registered. Please use a different email."
+          );
         } else {
-         
           const newItemParams = {
             TableName: "EnigmaForm",
             Item: {
@@ -179,7 +167,7 @@ const Form = () => {
               contact: formData.contact,
             },
           };
-  
+
           docClient.put(newItemParams, (putErr, putData) => {
             if (putErr) {
               console.error(
@@ -190,6 +178,30 @@ const Form = () => {
             } else {
               setResponseData(putData);
               toast.success("Registration successful!");
+
+              const emailData = {
+                to: formData.email,
+                subject: "Registration Successful",
+                text:"Thank you for your registation",
+                html: `   
+                <img src ="https://images.hiverhq.com/blog/wp-content/uploads/2023/09/tr:pr-true/How-to-Say-Thank-You-to-Your-Customers-14-Free-Templates.png" alt=""></img>
+
+
+   
+  `,
+              };
+
+              fetch(`https://enigma-form.onrender.com/send-email`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(emailData),
+              })
+                .then((response) => response.json())
+                .then((data) => console.log(data))
+                .catch((error) => console.error(error));
+
               setFormData({
                 name: "",
                 regd: "",
@@ -204,8 +216,6 @@ const Form = () => {
       }
     });
   };
-  
-  
 
   return (
     <>
@@ -216,7 +226,6 @@ const Form = () => {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
-         
         }}
       >
         <div className="matrix-container">
@@ -238,29 +247,34 @@ const Form = () => {
           style={{ display: "flex", flexDirection: "column", gap: "5px" }}
         >
           <h1>Registration Form</h1>
-          <TextField type="text" color="success" defaultValue="success"
-        id="name"
-        label="Name"
-        value={formData.name}
-        onChange={(event) => handleInputChange(event, "name")}
-        error={!!formErrors.name}
-        helperText={formErrors.name}
-        style={{ marginBottom: "10px" }}
-        InputLabelProps={{
-          style: { color: "green" }, 
-        }}
-        InputProps={{
-          style: {
-            borderColor: "green !important",
-            "&:focus": {
-              borderColor: "green !important",
-            },
-          },
-        }}
-        
-      />
+          <TextField
+            type="text"
+            color="success"
+            defaultValue="success"
+            id="name"
+            label="Name"
+            value={formData.name}
+            onChange={(event) => handleInputChange(event, "name")}
+            error={!!formErrors.name}
+            helperText={formErrors.name}
+            style={{ marginBottom: "10px" }}
+            InputLabelProps={{
+              style: { color: "green" },
+            }}
+            InputProps={{
+              style: {
+                borderColor: "green !important",
+                "&:focus": {
+                  borderColor: "green !important",
+                },
+              },
+            }}
+          />
 
-          <TextField type="text" color="success" defaultValue="success"
+          <TextField
+            type="text"
+            color="success"
+            defaultValue="success"
             id="email"
             label="Email"
             value={formData.email}
@@ -268,17 +282,19 @@ const Form = () => {
             error={!!formErrors.email}
             helperText={formErrors.email}
             style={{ marginBottom: "10px" }}
-        InputLabelProps={{
-          style: { color: "green" },
-          focused: false, 
-        }}
-        InputProps={{
-          style: { borderColor: "green" },
-          focused: false, 
-        }}
-     
+            InputLabelProps={{
+              style: { color: "green" },
+              focused: false,
+            }}
+            InputProps={{
+              style: { borderColor: "green" },
+              focused: false,
+            }}
           />
-          <TextField type="text" color="success" defaultValue="success"
+          <TextField
+            type="text"
+            color="success"
+            defaultValue="success"
             id="regd"
             label="Registration No."
             value={formData.regd}
@@ -286,16 +302,16 @@ const Form = () => {
             error={!!formErrors.regd}
             helperText={formErrors.regd}
             style={{ marginBottom: "10px" }}
-        InputLabelProps={{
-          style: { color: "green" }, 
-          focused: false, 
-        }}
-        InputProps={{
-          style: { borderColor: "green" },
-          focused: false,
-        }}
-      />
-          
+            InputLabelProps={{
+              style: { color: "green" },
+              focused: false,
+            }}
+            InputProps={{
+              style: { borderColor: "green" },
+              focused: false,
+            }}
+          />
+
           <div
             style={{
               display: "flex",
@@ -303,99 +319,105 @@ const Form = () => {
               width: "100%",
             }}
           >
-        
             <FormControl error={!!formErrors.branch} style={{ width: "48%" }}>
-  <InputLabel id="branch-label" style={{ color: "green" }}>
-    Branch
-  </InputLabel>
-  <Select type="text" color="success" defaultValue="success"
-    labelId="branch-label"
-    id="branch"
-    value={formData.branch}
-    label="Branch"
-    onChange={(event) => handleInputChange(event, "branch")}
-    InputLabelProps={{
-      style: { color: "green" },
-    }}
-    InputProps={{
-      style: {
-        borderColor: formErrors.branch ? "red" : "green",
-        "&:focus": {
-          borderColor: "green",
-        },
-      },
-    }}
-  >
-    <MenuItem value="" disabled>
-      <em>Select Branch</em>
-    </MenuItem>
-    {branchOptions.map((option, index) => (
-      <MenuItem key={index} value={option}>
-        {option}
-      </MenuItem>
-    ))}
-  </Select>
-  <FormHelperText>{formErrors.branch}</FormHelperText>
-</FormControl>
+              <InputLabel id="branch-label" style={{ color: "green" }}>
+                Branch
+              </InputLabel>
+              <Select
+                type="text"
+                color="success"
+                defaultValue="success"
+                labelId="branch-label"
+                id="branch"
+                value={formData.branch}
+                label="Branch"
+                onChange={(event) => handleInputChange(event, "branch")}
+                InputLabelProps={{
+                  style: { color: "green" },
+                }}
+                InputProps={{
+                  style: {
+                    borderColor: formErrors.branch ? "red" : "green",
+                    "&:focus": {
+                      borderColor: "green",
+                    },
+                  },
+                }}
+              >
+                <MenuItem value="" disabled>
+                  <em>Select Branch</em>
+                </MenuItem>
+                {branchOptions.map((option, index) => (
+                  <MenuItem key={index} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+              <FormHelperText>{formErrors.branch}</FormHelperText>
+            </FormControl>
 
-<FormControl error={!!formErrors.section} style={{ width: "48%" }}>
-  <InputLabel id="section-label" style={{ color: "green" }}>
-    Section
-  </InputLabel>
-  <Select type="text" color="success" defaultValue="success"
-    labelId="section-label"
-    id="section"
-    value={formData.section}
-    label="Section"
-    onChange={(event) => handleInputChange(event, "section")}
-    InputLabelProps={{
-      style: { color: "green" },
-    }}
-    InputProps={{
-      style: {
-        borderColor: formErrors.section ? "red" : "green",
-        "&:focus": {
-          borderColor: "green",
-        },
-      },
-    }}
-  >
-    <MenuItem value="" disabled>
-      <em>Select Section</em>
-    </MenuItem>
-    {sectionOptions.map((option, index) => (
-      <MenuItem key={index} value={option}>
-        {option}
-      </MenuItem>
-    ))}
-  </Select>
-  <FormHelperText>{formErrors.section}</FormHelperText>
-</FormControl>
-
+            <FormControl error={!!formErrors.section} style={{ width: "48%" }}>
+              <InputLabel id="section-label" style={{ color: "green" }}>
+                Section
+              </InputLabel>
+              <Select
+                type="text"
+                color="success"
+                defaultValue="success"
+                labelId="section-label"
+                id="section"
+                value={formData.section}
+                label="Section"
+                onChange={(event) => handleInputChange(event, "section")}
+                InputLabelProps={{
+                  style: { color: "green" },
+                }}
+                InputProps={{
+                  style: {
+                    borderColor: formErrors.section ? "red" : "green",
+                    "&:focus": {
+                      borderColor: "green",
+                    },
+                  },
+                }}
+              >
+                <MenuItem value="" disabled>
+                  <em>Select Section</em>
+                </MenuItem>
+                {sectionOptions.map((option, index) => (
+                  <MenuItem key={index} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+              <FormHelperText>{formErrors.section}</FormHelperText>
+            </FormControl>
           </div>
-          <TextField type="text" color="success" defaultValue="success"
+          <TextField
+            type="text"
+            color="success"
+            defaultValue="success"
             id="contact"
             label="Whatsapp No."
             value={formData.contact}
             onChange={(event) => handleInputChange(event, "contact")}
             error={!!formErrors.contact}
             helperText={formErrors.contact}
-            style={{marginTop:"7px"}}
-        InputLabelProps={{
-          style: { color: "green" }, 
-          focused: false, 
-        }}
-        InputProps={{
-          style: { borderColor: "green" }, 
-          focused: false, 
-        }}
-      />
-          
+            style={{ marginTop: "7px" }}
+            InputLabelProps={{
+              style: { color: "green" },
+              focused: false,
+            }}
+            InputProps={{
+              style: { borderColor: "green" },
+              focused: false,
+            }}
+          />
+
           <button className="button-18" onClick={handleSubmit}>
             Submit
           </button>
 
-       
           <div
             style={{ position: "absolute", top: 0, right: 0, fontSize: "20px" }}
           >
