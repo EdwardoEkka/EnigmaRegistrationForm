@@ -182,35 +182,19 @@ const Form = () => {
               const emailData = {
                 to: formData.email,
                 subject: "Thanking you for registration  ",
-                text:"Welcome To Enigam",
+                text:"Welcome To Enigma",
                 html: `
-                <h1 style="text-align:center;">ENIGMA</h1>
-                <img src ="Poster1.jpg" alt=""></img>
-                <a href="https://chat.whatsapp.com/IwGvJnfIK2V6MKQLcbVIOo"><button style="background-color: #13aa52;
-                border: 1px solid #13aa52;
-                border-radius: 4px;
-                box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-                box-sizing: border-box;
-                color: #fff;
-                cursor: pointer;
-                font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-                font-size: 16px;
-                font-weight: 400;
-                outline: none;
-                outline: 0;
+                <h1 style="text-align:center;">Thank You</h1>
+                <img src ="https://i.postimg.cc/pX6hSrHn/Thank-you.jpg" alt="Poster"></img>
+                <p>Best regards,</p>
+                <p>Enigma-VSSUT</p>            
+                <a href="https://chat.whatsapp.com/IwGvJnfIK2V6MKQLcbVIOo"><button style="background-color: ##2EFF2E;
+              
                 padding: 10px 25px;
                 text-align: center;
-                transform: translateY(0);
-                transition: transform 150ms, box-shadow 150ms;
-                user-select: none;
-                -webkit-user-select: none;
-                touch-action: manipulation;
               "
               
               >Join Group</button</a>
-
-
-   
   `,
               };
 
