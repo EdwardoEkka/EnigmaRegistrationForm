@@ -8,7 +8,7 @@ import Marquee from "react-fast-marquee";
 
 const Welcome = () => {
   const navigate = useNavigate();
-  const endTime = new Date("February 25, 2024 00:00:00").getTime();
+  const endTime = new Date("March 11, 2024 00:00:00").getTime();
   const [currentTime, setcurrentTime] = useState(new Date().getTime());
 
   const gap = endTime - currentTime;
@@ -68,13 +68,13 @@ const Welcome = () => {
 
       <div>
         <Marquee direction="left">
-          <h3 data-text="REGISTRATION BEGINS 21st FEB ">
-            <span>REGISTRATION BEGINS 21st FEB</span>
+          <h3 data-text="REGISTRATION BEGINS 25th FEB ">
+            <span>REGISTRATION BEGINS 25th FEB</span>
           </h3>
         </Marquee>
         <Marquee direction="right">
-          <h3 data-text="REGISTRATION ENDS 25th FEB">
-            <span>REGISTRATION ENDS 25th FEB</span>
+          <h3 data-text="REGISTRATION ENDS 11th MAR">
+            <span>REGISTRATION ENDS 11th MAR</span>
           </h3>
         </Marquee>
       </div>
