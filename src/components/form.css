@@ -128,7 +128,7 @@ select {
 @media (max-width: 800px) {
   .form-container {
     margin-top: 80px;
-    width: 90%;
+    width: 85%;
     padding: 0 10px; 
     
   }
