@@ -13,12 +13,12 @@ import "./form.css";
 import logo from "../components/images/EnigmaLogo.png";
 // import Matrix from "./Matrix";
 
-
 const Form = () => {
   const [responseData, setResponseData] = useState(null);
   const [interest, setInterest] = useState(false);
   const [inductionDomainS, setInductionDomainS] = useState("");
   const [inductionDomainP, setInductionDomainP] = useState("");
+  const [enigma,setEnigma]=useState("");
   const [loading, setLoading] = useState(false);
   const inductionDomainOptionsS = [
     "Web Dev",
@@ -44,6 +44,7 @@ const Form = () => {
   const [formData, setFormData] = useState({
     fname: "",
     lname: "",
+    gender:"",
     regd: "",
     branch: "",
     section: "",
@@ -54,6 +55,7 @@ const Form = () => {
   const [formErrors, setFormErrors] = useState({
     fname: "",
     lname: "",
+    gender:"",
     regd: "",
     branch: "",
     section: "",
@@ -74,6 +76,8 @@ const Form = () => {
     "Metallurgy and materials Engineering",
     "Production Engineering",
   ];
+
+  const gender=["Male","Female","Prefer not to say"]
 
   const sectionOptions = [
     "A",
@@ -154,12 +158,14 @@ const Form = () => {
       date: dateObject.toLocaleString(),
       first_name: formData.fname,
       last_name: formData.lname,
+      gender: formData.gender,
       regd: formData.regd,
       branch: formData.branch,
       section: formData.section,
       email: formData.email,
       contact: formData.contact,
       feedback: formData.feedback,
+      enigmaMotivation:enigma,
       primary_domain: inductionDomainP,
       secondary_domain: inductionDomainS,
     };
@@ -247,12 +253,10 @@ const Form = () => {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
-          marginBottom:"10px",
+          marginBottom: "10px",
         }}
       >
-        <div className="ma-container">
-          
-        </div>
+        <div className="ma-container"></div>
         <a href="https://enigmavssut.com/" rel="noreferrer" target="_blank">
           <img
             src={logo}
@@ -271,6 +275,30 @@ const Form = () => {
           style={{ display: "flex", flexDirection: "column", gap: "5px" }}
         >
           <h1>Registration Form</h1>
+          <TextField
+            type="text"
+            color="success"
+            defaultValue=""
+            id="name"
+            autoComplete="off"
+            label="First Name"
+            value={formData.fname}
+            onChange={(event) => handleInputChange(event, "fname")}
+            error={!!formErrors.fname}
+            helperText={formErrors.fname}
+            style={{ marginBottom: "10px", width: "100%" }}
+            InputLabelProps={{
+              style: { color: "green" },
+            }}
+            InputProps={{
+              style: {
+                borderColor: "green !important",
+                "&:focus": {
+                  borderColor: "green !important",
+                },
+              },
+            }}
+          />
           <div
             style={{
               display: "flex",
@@ -284,29 +312,7 @@ const Form = () => {
               color="success"
               defaultValue=""
               id="name"
-              label="First Name"
-              value={formData.fname}
-              onChange={(event) => handleInputChange(event, "fname")}
-              error={!!formErrors.fname}
-              helperText={formErrors.fname}
-              style={{ marginBottom: "10px", width: "100%" }}
-              InputLabelProps={{
-                style: { color: "green" },
-              }}
-              InputProps={{
-                style: {
-                  borderColor: "green !important",
-                  "&:focus": {
-                    borderColor: "green !important",
-                  },
-                },
-              }}
-            />
-            <TextField
-              type="text"
-              color="success"
-              defaultValue=""
-              id="name"
+              autoComplete="off"
               label="Last Name"
               value={formData.lname}
               onChange={(event) => handleInputChange(event, "lname")}
@@ -325,6 +331,44 @@ const Form = () => {
                 },
               }}
             />
+              <FormControl error={!!formErrors.branch} style={{ width: "48%" }}>
+                  <InputLabel id="branch-label" style={{ color: "green" }}>
+                    Gender
+                  </InputLabel>
+                  <Select
+                    type="text"
+                    color="success"
+                    defaultValue="success"
+                    autoComplete="off"
+                    labelId="gender-label"
+                    id="gender"
+                    value={formData.gender}
+                    label="Gender"
+                    style={{ marginBottom: "10px", width: "100%" }}
+                    onChange={(event) => handleInputChange(event, "gender")}
+                    InputLabelProps={{
+                      style: { color: "green" },
+                    }}
+                    InputProps={{
+                      style: {
+                        borderColor: formErrors.gender ? "red" : "green",
+                        "&:focus": {
+                          borderColor: "green",
+                        },
+                      },
+                    }}
+                  >
+                    <MenuItem value="" disabled>
+                      <em>Select Gender</em>
+                    </MenuItem>
+                    {gender.map((option, index) => (
+                      <MenuItem key={index} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                  <FormHelperText>{formErrors.gender}</FormHelperText>
+                </FormControl>
           </div>
 
           <TextField
@@ -332,6 +376,7 @@ const Form = () => {
             color="success"
             defaultValue="success"
             id="email"
+            autoComplete="off"
             label="Email"
             value={formData.email}
             onChange={(event) => handleInputChange(event, "email")}
@@ -352,6 +397,7 @@ const Form = () => {
             color="success"
             defaultValue="success"
             id="regd"
+            autoComplete="off"
             label="Registration No."
             value={formData.regd}
             onChange={(event) => handleInputChange(event, "regd")}
@@ -384,6 +430,7 @@ const Form = () => {
                 type="text"
                 color="success"
                 defaultValue="success"
+                autoComplete="off"
                 labelId="branch-label"
                 id="branch"
                 value={formData.branch}
@@ -422,6 +469,7 @@ const Form = () => {
                 color="success"
                 defaultValue="success"
                 labelId="section-label"
+                autoComplete="off"
                 id="section"
                 value={formData.section}
                 label="Section"
@@ -455,6 +503,7 @@ const Form = () => {
             color="success"
             defaultValue="success"
             id="contact"
+            autoComplete="off"
             label="Whatsapp No."
             value={formData.contact}
             onChange={(event) => handleInputChange(event, "contact")}
@@ -476,11 +525,14 @@ const Form = () => {
             color="success"
             defaultValue="success"
             id="feedback"
+            autoComplete="off"
             label="Write your expectations from this workshop"
             value={formData.feedback}
             onChange={(event) => handleInputChange(event, "feedback")}
             error={!!formErrors.feedback}
             helperText={formErrors.feedback}
+            multiline
+            rows={4}
             style={{ marginBottom: "10px" }}
             InputLabelProps={{
               style: { color: "green" },
@@ -514,6 +566,29 @@ const Form = () => {
           </div>
           {interest && (
             <div style={{ marginTop: "10px", marginBottom: "10px" }}>
+              <TextField
+                type="text"
+                color="success"
+                autoComplete="off"
+                defaultValue="success"
+                id="enigma"
+                label="Why do you want to join Enigma?"
+                value={enigma}
+                onChange={(event) => setEnigma(event.target.value)}
+
+                multiline
+                rows={4}
+                style={{ marginBottom: "10px",width:"100%" }}
+                InputLabelProps={{
+                  style: { color: "green" },
+                  focused: false,
+                }}
+                InputProps={{
+                  style: { borderColor: "green" },
+                  focused: false,
+                }}
+              />
+
               <div
                 style={{
                   display: "flex",
@@ -541,6 +616,7 @@ const Form = () => {
                     type="text"
                     color="success"
                     defaultValue="success"
+                    autoComplete="off"
                     labelId="domains"
                     id="domains"
                     value={inductionDomainP}
@@ -575,9 +651,7 @@ const Form = () => {
                   <InputLabel
                     id="branch-label"
                     style={{
-                      color: "green",
-                     
-                     
+                      color: "green"
                     }}
                   >
                     Secondary
@@ -586,6 +660,7 @@ const Form = () => {
                     type="text"
                     color="success"
                     defaultValue="success"
+                    autoComplete="off"
                     labelId="domains"
                     id="domains"
                     value={inductionDomainS}
