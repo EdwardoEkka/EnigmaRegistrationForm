@@ -577,7 +577,7 @@ const Form = () => {
                     style={{
                       color: "green",
                      
-                      // paddingRight: "5px",
+                     
                     }}
                   >
                     Secondary
