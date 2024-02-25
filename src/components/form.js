@@ -19,6 +19,7 @@ const Form = () => {
   const [interest, setInterest] = useState(false);
   const [inductionDomainS, setInductionDomainS] = useState("");
   const [inductionDomainP, setInductionDomainP] = useState("");
+  const [loading, setLoading] = useState(false);
   const inductionDomainOptionsS = [
     "Web Dev",
     "App Dev",
@@ -35,8 +36,6 @@ const Form = () => {
     "CyberSecurity",
     "CloudComputing",
   ];
-
-  
 
   const [formData, setFormData] = useState({
     fname: "",
@@ -143,6 +142,7 @@ const Form = () => {
   };
 
   const handleAddItem = () => {
+    setLoading(true);
     const uniqueNum = Date.now();
     const dateObject = new Date(uniqueNum);
     console.log(inductionDomainP, inductionDomainS);
@@ -163,6 +163,7 @@ const Form = () => {
     axios
       .post("https://enigma-regd-backend.onrender.com/add-regn", newItem)
       .then((response) => {
+        setLoading(false);
         if (response.data.error) {
           toast.error(response.data);
         } else {
@@ -219,6 +220,7 @@ const Form = () => {
         }
       })
       .catch((error) => {
+        setLoading(false);
         if (error.response) {
           console.error(error.response.data);
           toast.error(`${error.response.data.error}`);
@@ -241,6 +243,7 @@ const Form = () => {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
+          marginBottom:"10px",
         }}
       >
         <div className="matrix-container">
@@ -365,6 +368,7 @@ const Form = () => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              gap: "20px",
               width: "100%",
             }}
           >
@@ -493,38 +497,38 @@ const Form = () => {
           >
             <span>
               <input
-                type="checkbox" 
+                type="checkbox"
                 checked={interest}
-                onChange={()=>setInterest(!interest)}
+                onChange={() => setInterest(!interest)}
                 style={{ margin: 0, padding: 0 }}
               />
             </span>
 
             <span style={{ color: "green", marginBottom: "10px" }}>
-             Induction Interest
+              Induction Interest
             </span>
           </div>
           {interest && (
-          <div style={{ marginTop: "10px", marginBottom: "10px" }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "flex-start",
-                gap: "10px",
-              }}
-            >
-              <span style={{ color: "green", marginBottom: "10px" }}>
-                Choose Domains
-              </span>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: "20px",
-                marginTop: "10px",
-              }}
-            >
+            <div style={{ marginTop: "10px", marginBottom: "10px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  gap: "10px",
+                }}
+              >
+                <span style={{ color: "green", marginBottom: "10px" }}>
+                  Choose Domains
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "20px",
+                  marginTop: "10px",
+                }}
+              >
                 <FormControl style={{ width: "100%" }}>
                   <InputLabel id="branch-label" style={{ color: "green" }}>
                     Primary
@@ -608,12 +612,16 @@ const Form = () => {
                   </Select>
                   <FormHelperText></FormHelperText>
                 </FormControl>
+              </div>
             </div>
-          </div>
-              )}
+          )}
 
-          <button className="button-18" onClick={handleSubmit}>
-            Submit
+          <button
+            className="button-18"
+            onClick={handleSubmit}
+            disabled={loading}
+          >
+            {loading ? "Submitting..." : "Submit"}
           </button>
 
           <div
