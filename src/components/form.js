@@ -423,7 +423,7 @@ const Form = () => {
             }}
           >
             <FormControl error={!!formErrors.branch} style={{ width: "48%" }}>
-              <InputLabel id="branch-label" style={{ color: "green" }}>
+              <InputLabel id="branch-label" style={{ color: "green",borderColor:"white" }}>
                 Branch
               </InputLabel>
               <Select
@@ -651,9 +651,7 @@ const Form = () => {
                   <InputLabel
                     id="branch-label"
                     style={{
-                      color: "green",
-
-                      // paddingRight: "5px",
+                      color: "green"
                     }}
                   >
                     Secondary
