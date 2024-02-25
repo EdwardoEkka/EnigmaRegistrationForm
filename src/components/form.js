@@ -16,7 +16,7 @@ import Example from "./back";
 
 const Form = () => {
   const [responseData, setResponseData] = useState(null);
-  const [registerForInduction, setRegisterForInduction] = useState(false);
+  const [interest, setInterest] = useState(false);
   const [inductionDomainS, setInductionDomainS] = useState("");
   const [inductionDomainP, setInductionDomainP] = useState("");
   const inductionDomainOptionsS = [
@@ -36,9 +36,7 @@ const Form = () => {
     "CloudComputing",
   ];
 
-  const handleCheckboxChangeForInduction = () => {
-    setRegisterForInduction(!registerForInduction);
-  };
+  
 
   const [formData, setFormData] = useState({
     fname: "",
@@ -217,7 +215,7 @@ const Form = () => {
           });
           setInductionDomainP("");
           setInductionDomainP("");
-          setRegisterForInduction(!registerForInduction);
+          setInterest(!interest);
         }
       })
       .catch((error) => {
@@ -470,7 +468,7 @@ const Form = () => {
             color="success"
             defaultValue="success"
             id="feedback"
-            label="What are your expectations from this workshop?"
+            label="Write your expectations from this workshop"
             value={formData.feedback}
             onChange={(event) => handleInputChange(event, "feedback")}
             error={!!formErrors.feedback}
@@ -485,6 +483,27 @@ const Form = () => {
               focused: false,
             }}
           />
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-start",
+              gap: "10px",
+            }}
+          >
+            <span>
+              <input
+                type="checkbox"
+                onChange={()=>setInterest(!interest)}
+                style={{ margin: 0, padding: 0 }}
+              />
+            </span>
+
+            <span style={{ color: "green", marginBottom: "10px" }}>
+             Induction Interest
+            </span>
+          </div>
+          {interest && (
           <div style={{ marginTop: "10px", marginBottom: "10px" }}>
             <div
               style={{
@@ -493,16 +512,8 @@ const Form = () => {
                 gap: "10px",
               }}
             >
-              <span>
-                <input
-                  type="checkbox"
-                  checked={registerForInduction}
-                  onChange={handleCheckboxChangeForInduction}
-                  style={{ margin: 0, padding: 0 }}
-                />
-              </span>
-              <span style={{ color: "green" }}>
-                Do you want Register for the Induction Process of Enigma
+              <span style={{ color: "green", marginBottom: "10px" }}>
+                Choose Domains
               </span>
             </div>
             <div
@@ -513,29 +524,27 @@ const Form = () => {
                 marginTop: "10px",
               }}
             >
-              {registerForInduction && (
-                <FormControl style={{ width: "100%", marginTop: "10px" }}>
-                  <InputLabel
-                    id="induction-domain-label"
-                    style={{
-                      color: "green",
-                      backgroundColor: "rgb(245, 247, 244)",
-                      paddingLeft: "5px",
-                      paddingRight: "5px",
-                    }}
-                  >
-                    Primary Domain
+                <FormControl style={{ width: "100%" }}>
+                  <InputLabel id="branch-label" style={{ color: "green" }}>
+                    Primary
                   </InputLabel>
                   <Select
-                    labelId="induction-domain-label"
-                    id="induction-domain"
+                    type="text"
+                    color="success"
+                    defaultValue="success"
+                    labelId="domains"
+                    id="domains"
                     value={inductionDomainP}
+                    label="domain"
                     onChange={(event) =>
                       setInductionDomainP(event.target.value)
                     }
+                    InputLabelProps={{
+                      style: { color: "green" },
+                    }}
                     InputProps={{
                       style: {
-                        borderColor: "green",
+                        borderColor: formErrors.branch ? "red" : "green",
                         "&:focus": {
                           borderColor: "green",
                         },
@@ -543,47 +552,7 @@ const Form = () => {
                     }}
                   >
                     <MenuItem value="" disabled>
-                      <em>Select Induction Domain</em>
-                    </MenuItem>
-                    {inductionDomainOptionsP.map((option, index) => (
-                      <MenuItem key={index} value={option}>
-                        {option}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              )}
-              {registerForInduction && (
-                <FormControl style={{ width: "100%", marginTop: "10px" }}>
-                  <InputLabel
-                    id="induction-domain-label"
-                    style={{
-                      color: "green",
-                      backgroundColor: "rgb(245, 247, 244)",
-                      paddingLeft: "5px",
-                      paddingRight: "5px",
-                    }}
-                  >
-                    Secondary Domain
-                  </InputLabel>
-                  <Select
-                    labelId="induction-domain-label"
-                    id="induction-domain"
-                    value={inductionDomainS}
-                    onChange={(event) =>
-                      setInductionDomainS(event.target.value)
-                    }
-                    InputProps={{
-                      style: {
-                        borderColor: "green",
-                        "&:focus": {
-                          borderColor: "green",
-                        },
-                      },
-                    }}
-                  >
-                    <MenuItem value="" disabled>
-                      <em>Select Induction Domain</em>
+                      <em>Select Primary Domain</em>
                     </MenuItem>
                     {inductionDomainOptionsS.map((option, index) => (
                       <MenuItem key={index} value={option}>
@@ -591,10 +560,56 @@ const Form = () => {
                       </MenuItem>
                     ))}
                   </Select>
+                  <FormHelperText></FormHelperText>
                 </FormControl>
-              )}
+                <FormControl style={{ width: "100%" }}>
+                  <InputLabel
+                    id="branch-label"
+                    style={{
+                      color: "green",
+                      backgroundColor: "rgb(245, 247, 244)",
+                      paddingRight: "2px",
+                    }}
+                  >
+                    Secondary
+                  </InputLabel>
+                  <Select
+                    type="text"
+                    color="success"
+                    defaultValue="success"
+                    labelId="domains"
+                    id="domains"
+                    value={inductionDomainS}
+                    label="domain"
+                    onChange={(event) =>
+                      setInductionDomainS(event.target.value)
+                    }
+                    InputLabelProps={{
+                      style: { color: "green" },
+                    }}
+                    InputProps={{
+                      style: {
+                        borderColor: formErrors.branch ? "red" : "green",
+                        "&:focus": {
+                          borderColor: "green",
+                        },
+                      },
+                    }}
+                  >
+                    <MenuItem value="" disabled>
+                      <em>Select Secondary Domain</em>
+                    </MenuItem>
+                    {inductionDomainOptionsS.map((option, index) => (
+                      <MenuItem key={index} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                  <FormHelperText></FormHelperText>
+                </FormControl>
             </div>
           </div>
+              )}
 
           <button className="button-18" onClick={handleSubmit}>
             Submit
