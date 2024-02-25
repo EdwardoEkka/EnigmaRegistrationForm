@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 import {
   TextField,
   Select,
@@ -9,44 +9,45 @@ import {
   FormHelperText,
 } from "@mui/material";
 import { toast, Toaster } from "react-hot-toast";
-import AWS from "aws-sdk";
 import "./form.css";
 import logo from "../components/images/EnigmaLogo.png";
 import Matrix from "./Matrix";
 
-const AWS_ACCESS_KEY_ID = "AKIAXYKJT7OCKNTDZC6G";
-const AWS_SECRET_ACCESS_KEY = "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";
-const AWS_REGION = "ap-south-1";
-// const MAIL_API = process.env.MAIL_API;
-
-AWS.config.update({
-  region: AWS_REGION,
-  credentials: new AWS.Credentials({
-    accessKeyId: AWS_ACCESS_KEY_ID,
-    secretAccessKey: AWS_SECRET_ACCESS_KEY,
-  }),
-});
-
-const docClient = new AWS.DynamoDB.DocumentClient();
-
 const Form = () => {
   const [responseData, setResponseData] = useState(null);
+  const [registerForInduction, setRegisterForInduction] = useState(false);
+  const [inductionDomainS, setInductionDomainS] = useState("");
+  const [inductionDomainP, setInductionDomainP] = useState("");
+  const inductionDomainOptionsS = ["Web Dev","App Dev","Game Dev","AI/ML","CyberSecurity","CloudComputing"];
+  const inductionDomainOptionsP = ["Web Dev","App Dev","Game Dev","AI/ML","CyberSecurity","CloudComputing"];
+
+  
+
+  const handleCheckboxChangeForInduction = () => {
+    setRegisterForInduction(!registerForInduction);
+  };
+
   const [formData, setFormData] = useState({
-    name: "",
+    fname: "",
+    lname:"",
     regd: "",
     branch: "",
     section: "",
     email: "",
     contact: "",
+    feedback:"",
   });
   const [formErrors, setFormErrors] = useState({
-    name: "",
+    fname: "",
+    lname:"",
     regd: "",
     branch: "",
     section: "",
     email: "",
     contact: "",
+    feedback:"",
   });
+
 
   const branchOptions = [
     "Chemical Engineering",
@@ -60,6 +61,7 @@ const Form = () => {
     "Metallurgy and materials Engineering",
     "Production Engineering",
   ];
+
   const sectionOptions = [
     "A",
     "B",
@@ -133,95 +135,89 @@ const Form = () => {
   const handleAddItem = () => {
     const uniqueNum = Date.now();
     const dateObject = new Date(uniqueNum);
-
-    const scanParams = {
-      TableName: "EnigmaForm",
-      FilterExpression: "#email = :email",
-      ExpressionAttributeNames: {
-        "#email": "email",
-      },
-      ExpressionAttributeValues: {
-        ":email": formData.email,
-      },
+    console.log(inductionDomainP,inductionDomainS);
+    const newItem = {
+      date: dateObject.toLocaleString(),
+      first_name: formData.fname,
+      last_name: formData.lname,
+      regd: formData.regd,
+      branch: formData.branch,
+      section: formData.section,
+      email: formData.email,
+      contact: formData.contact,
+      feedback: formData.feedback,
+      primary_domain: inductionDomainP,
+      secondary_domain: inductionDomainS,
     };
+    
 
-    docClient.scan(scanParams, (scanErr, scanData) => {
-      if (scanErr) {
-        console.error("Error scanning DynamoDB:", scanErr);
-        toast.error("Registration failed. Please try again.");
+    axios
+    .post("https://enigma-regd-backend.onrender.com/add-regn", newItem)
+    .then((response) => {
+      if (response.data.error) {
+        toast.error(response.data);
       } else {
-        if (scanData.Items.length > 0) {
-          toast.error(
-            "Email is already registered. Please use a different email."
-          );
-        } else {
-          const newItemParams = {
-            TableName: "EnigmaForm",
-            Item: {
-              date: dateObject.toLocaleString(),
-              name: formData.name,
-              regd: formData.regd,
-              branch: formData.branch,
-              section: formData.section,
-              email: formData.email,
-              contact: formData.contact,
-            },
-          };
-
-          docClient.put(newItemParams, (putErr, putData) => {
-            if (putErr) {
-              console.error(
-                "Unable to add item. Error JSON:",
-                JSON.stringify(putErr, null, 2)
-              );
-              toast.error("Registration failed. Please try again.");
-            } else {
-              setResponseData(putData);
-              toast.success("Registration successful!");
-
-              const emailData = {
-                to: formData.email,
-                subject: "Thanking you for registration  ",
-                text:"Welcome To Enigma",
-                html: `
-                <h1 style="text-align:center;">Thank You</h1>
-                <img src ="https://i.postimg.cc/pX6hSrHn/Thank-you.jpg" alt="Poster"></img>
-                <p>Best regards,</p>
-                <p>Enigma-VSSUT</p>            
-                <a href="https://chat.whatsapp.com/IwGvJnfIK2V6MKQLcbVIOo"><button style="background-color: ##2EFF2E;
-              
-                padding: 10px 25px;
-                text-align: center;
-              "
-              
-              >Join Group</button</a>
-  `,
-              };
-
-              fetch(`https://enigma-form.onrender.com/send-email`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(emailData),
-              })
-                .then((response) => response.json())
-                .then((data) => console.log(data))
-                .catch((error) => console.error(error));
-
-              setFormData({
-                name: "",
-                regd: "",
-                branch: "",
-                section: "",
-                email: "",
-                contact: "",
-              });
-            }
-          });
-        }
+        setResponseData(response.data);
+        toast.success("Registration successful!");
+  
+        const emailData = {
+          to: formData.email,
+          subject: "Thanking you for registration  ",
+          text: "Welcome To Enigma",
+          html: `
+            <h1 style="text-align:center;">Thank You</h1>
+            <img src ="https://i.postimg.cc/pX6hSrHn/Thank-you.jpg" alt="Poster"></img>
+            <p>Best regards,</p>
+            <p>Enigma-VSSUT</p>            
+            <a href="https://chat.whatsapp.com/IwGvJnfIK2V6MKQLcbVIOo"><button style="background-color: ##2EFF2E;
+            
+            padding: 10px 25px;
+            text-align: center;
+          "
+          
+          >Join Group</button></a>`,
+        };
+  
+        fetch(`https://enigma-form.onrender.com/send-email`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(emailData),
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .catch((error) => console.error(error));
+  
+        setFormData({
+          fname: "",
+          lname: "",
+          regd: "",
+          branch: "",
+          section: "",
+          email: "",
+          feedback: "",
+          contact: "",
+        });
+        setInductionDomainP("");
+        setInductionDomainP("");
+        setRegisterForInduction(!registerForInduction);
+      }
+    })
+    .catch((error) => {
+      if (error.response) {
+        console.error( error.response.data);
+        toast.error(`${error.response.data.error}`);
+      } else if (error.request) {
+        console.error("Network error:", error.request);
+        toast.error("Network error. Please check your internet connection.");
+      } else {
+        console.error("Request error:", error.message);
+        toast.error("Request error. Please try again.");
       }
     });
+    
+  
   };
 
   return (
@@ -238,6 +234,7 @@ const Form = () => {
         <div className="matrix-container">
           <Matrix />
         </div>
+        <a href="https://enigmavssut.com/" rel="noreferrer" target="_blank" >
         <img
           src={logo}
           alt="Logo"
@@ -249,22 +246,25 @@ const Form = () => {
             left: 0,
           }}
         />
+        </a>
         <div
           className="form-container"
           style={{ display: "flex", flexDirection: "column", gap: "5px" }}
         >
           <h1>Registration Form</h1>
+          <div style={{ display: "flex", justifyContent: "space-between",gap:"20px",marginTop:"10px" }}>
+          
           <TextField
             type="text"
             color="success"
-            defaultValue="success"
+            defaultValue=""
             id="name"
-            label="Name"
-            value={formData.name}
-            onChange={(event) => handleInputChange(event, "name")}
-            error={!!formErrors.name}
-            helperText={formErrors.name}
-            style={{ marginBottom: "10px" }}
+            label="First Name"
+            value={formData.fname}
+            onChange={(event) => handleInputChange(event, "fname")}
+            error={!!formErrors.fname}
+            helperText={formErrors.fname}
+            style={{ marginBottom: "10px",width:"100%" }}
             InputLabelProps={{
               style: { color: "green" },
             }}
@@ -277,6 +277,30 @@ const Form = () => {
               },
             }}
           />
+          <TextField
+            type="text"
+            color="success"
+            defaultValue=""
+            id="name"
+            label="Last Name"
+            value={formData.lname}
+            onChange={(event) => handleInputChange(event, "lname")}
+            error={!!formErrors.lname}
+            helperText={formErrors.lname}
+            style={{ marginBottom: "10px",width:"100%"  }}
+            InputLabelProps={{
+              style: { color: "green" },
+            }}
+            InputProps={{
+              style: {
+                borderColor: "green !important",
+                "&:focus": {
+                  borderColor: "green !important",
+                },
+              },
+            }}
+          />
+          </div>
 
           <TextField
             type="text"
@@ -410,7 +434,7 @@ const Form = () => {
             onChange={(event) => handleInputChange(event, "contact")}
             error={!!formErrors.contact}
             helperText={formErrors.contact}
-            style={{ marginTop: "7px" }}
+            style={{ marginTop: "7px",marginBottom: "10px" }}
             InputLabelProps={{
               style: { color: "green" },
               focused: false,
@@ -420,6 +444,111 @@ const Form = () => {
               focused: false,
             }}
           />
+
+          <TextField
+            type="text"
+            color="success"
+            defaultValue="success"
+            id="feedback"
+            label="What are your expectations from this workshop?"
+            value={formData.feedback}
+            onChange={(event) => handleInputChange(event, "feedback")}
+            error={!!formErrors.feedback}
+            helperText={formErrors.feedback}
+            style={{ marginBottom: "10px" }}
+            InputLabelProps={{
+              style: { color: "green" },
+              focused: false,
+            }}
+            InputProps={{
+              style: { borderColor: "green" },
+              focused: false,
+            }}
+          />
+          <div style={{ marginTop: "10px", marginBottom: "10px" }}>
+            <div style={{ display: "flex", justifyContent:"flex-start",gap:"10px" }}>
+              <span>
+
+              <input
+                type="checkbox"
+                checked={registerForInduction}
+                onChange={handleCheckboxChangeForInduction}
+                style={{ margin: 0, padding: 0 }}
+              />
+              </span>
+              <span style={{ color: "green" }}>
+               Do you want Register for the Induction Process of Enigma
+              </span>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between",gap:"20px",marginTop:"10px" }}>
+            {registerForInduction && (
+              <FormControl style={{ width: "100%", marginTop: "10px" }}>
+                <InputLabel
+                  id="induction-domain-label"
+                  style={{ color: "green",backgroundColor:"rgb(245, 247, 244)",paddingLeft:"5px",paddingRight:"5px" }}
+                >
+                  Primary Domain
+                </InputLabel>
+                <Select
+                  labelId="induction-domain-label"
+                  id="induction-domain"
+                  value={inductionDomainP}
+                  onChange={(event) => setInductionDomainP(event.target.value)}
+                  InputProps={{
+                    style: {
+                      borderColor: "green",
+                      "&:focus": {
+                        borderColor: "green",
+                      },
+                    },
+                  }}
+                >
+                  <MenuItem value="" disabled>
+                    <em>Select Induction Domain</em>
+                  </MenuItem>
+                  {inductionDomainOptionsP.map((option, index) => (
+                    <MenuItem key={index} value={option}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            )}
+            {registerForInduction && (
+              <FormControl style={{ width: "100%", marginTop: "10px" }}>
+                <InputLabel
+                  id="induction-domain-label"
+                  style={{ color: "green",backgroundColor:"rgb(245, 247, 244)",paddingLeft:"5px",paddingRight:"5px"  }}
+                >
+                  Secondary Domain
+                </InputLabel>
+                <Select
+                  labelId="induction-domain-label"
+                  id="induction-domain"
+                  value={inductionDomainS}
+                  onChange={(event) => setInductionDomainS(event.target.value)}
+                  InputProps={{
+                    style: {
+                      borderColor: "green",
+                      "&:focus": {
+                        borderColor: "green",
+                      },
+                    },
+                  }}
+                >
+                  <MenuItem value="" disabled>
+                    <em>Select Induction Domain</em>
+                  </MenuItem>
+                  {inductionDomainOptionsS.map((option, index) => (
+                    <MenuItem key={index} value={option}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            )}
+            </div>
+          </div>
 
           <button className="button-18" onClick={handleSubmit}>
             Submit

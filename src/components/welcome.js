@@ -52,7 +52,7 @@ const Welcome = () => {
           zIndex: "999", 
         }}
       >
-        <img src={logo} alt="Logo" style={{ height: "80px", width: "80px" }} />
+        <a href="https://enigmavssut.com/" rel="noreferrer" target="_blank" ><img src={logo} alt="Logo" style={{ height: "80px", width: "80px" }} /></a>
       </div>
 
       
