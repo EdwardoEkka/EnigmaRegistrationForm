@@ -12,7 +12,7 @@ import { toast, Toaster } from "react-hot-toast";
 import "./form.css";
 import logo from "../components/images/EnigmaLogo.png";
 // import Matrix from "./Matrix";
-import Example from "./back";
+
 
 const Form = () => {
   const [responseData, setResponseData] = useState(null);
@@ -250,8 +250,8 @@ const Form = () => {
           marginBottom:"10px",
         }}
       >
-        <div className="matrix-container">
-          <Example />
+        <div className="ma-container">
+          
         </div>
         <a href="https://enigmavssut.com/" rel="noreferrer" target="_blank">
           <img
@@ -576,8 +576,8 @@ const Form = () => {
                     id="branch-label"
                     style={{
                       color: "green",
-                      backgroundColor: "rgb(245, 247, 244)",
-                      paddingRight: "2px",
+                     
+                      // paddingRight: "5px",
                     }}
                   >
                     Secondary
