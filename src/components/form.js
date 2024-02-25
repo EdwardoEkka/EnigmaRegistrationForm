@@ -377,7 +377,7 @@ const Form = () => {
             }}
           >
             <FormControl error={!!formErrors.branch} style={{ width: "48%" }}>
-              <InputLabel id="branch-label" style={{ color: "green" }}>
+              <InputLabel id="branch-label" style={{ color: "green",borderColor:"white" }}>
                 Branch
               </InputLabel>
               <Select
