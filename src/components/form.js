@@ -214,8 +214,8 @@ const Form = () => {
             contact: "",
           });
           setInductionDomainP("");
-          setInductionDomainP("");
-          setInterest(!interest);
+          setInductionDomainS("");
+          setInterest(false);
         }
       })
       .catch((error) => {
@@ -493,7 +493,8 @@ const Form = () => {
           >
             <span>
               <input
-                type="checkbox"
+                type="checkbox" 
+                checked={interest}
                 onChange={()=>setInterest(!interest)}
                 style={{ margin: 0, padding: 0 }}
               />
@@ -554,7 +555,7 @@ const Form = () => {
                     <MenuItem value="" disabled>
                       <em>Select Primary Domain</em>
                     </MenuItem>
-                    {inductionDomainOptionsS.map((option, index) => (
+                    {inductionDomainOptionsP.map((option, index) => (
                       <MenuItem key={index} value={option}>
                         {option}
                       </MenuItem>
