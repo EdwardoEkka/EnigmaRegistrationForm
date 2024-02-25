@@ -25,8 +25,10 @@ const Form = () => {
     "App Dev",
     "Game Dev",
     "AI/ML",
-    "CyberSecurity",
-    "CloudComputing",
+    "Cyber Security",
+    "Cloud Computing",
+    "UI/UX",
+    "Blender",
   ];
   const inductionDomainOptionsP = [
     "Web Dev",
