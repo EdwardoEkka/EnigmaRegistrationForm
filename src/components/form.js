@@ -171,7 +171,7 @@ const Form = () => {
     };
 
     axios
-      .post("http://localhost:3000/add-regn", newItem)
+      .post("https://enigma-regd-backend.onrender.com/add-regn", newItem)
       .then((response) => {
         setLoading(false);
         if (response.data.error) {
