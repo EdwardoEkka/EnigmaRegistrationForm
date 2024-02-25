@@ -505,7 +505,7 @@ const Form = () => {
             </span>
 
             <span style={{ color: "green", marginBottom: "10px" }}>
-              Induction Interest
+              Interested to take part in Enigma Induction?
             </span>
           </div>
           {interest && (
