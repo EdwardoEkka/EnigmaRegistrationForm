@@ -51,7 +51,7 @@ const Form = () => {
     section: "",
     email: "",
     contact: "",
-    feedback: "",
+    expectations: "",
   });
   const [formErrors, setFormErrors] = useState({
     name: "",
@@ -62,7 +62,7 @@ const Form = () => {
     section: "",
     email: "",
     contact: "",
-    feedback: "",
+    expectations: "",
   });
 
   const branchOptions = [
@@ -167,7 +167,7 @@ const Form = () => {
       section: formData.section,
       email: formData.email,
       contact: formData.contact,
-      feedback: formData.feedback,
+      expectations: formData.expectations,
       enigmaMotivation:enigma,
       primary_domain: inductionDomainP,
       secondary_domain: inductionDomainS,
@@ -226,7 +226,7 @@ const Form = () => {
             branch: "",
             section: "",
             email: "",
-            feedback: "",
+            expectations: "",
             contact: "",
           });
           setInductionDomainP("");
@@ -354,7 +354,7 @@ const Form = () => {
 
                 <FormControl error={!!formErrors.year} style={{ width: "48%" }}>
                   <InputLabel id="year-label" style={{ color: "green",zIndex:"99" }}>
-                    Year of Passing
+                    Graduation year
                   </InputLabel>
                   <Select
                     type="text"
@@ -364,7 +364,7 @@ const Form = () => {
                     labelId="year-label"
                     id="year"
                     value={formData.year}
-                    label="Year of Passing"
+                    label="Graduation year"
                     style={{ marginBottom: "10px", width: "100%" }}
                     onChange={(event) => handleInputChange(event, "year")}
                     InputLabelProps={{
@@ -545,13 +545,13 @@ const Form = () => {
             type="text"
             color="success"
             defaultValue="success"
-            id="feedback"
+            id="expectations"
             autoComplete="off"
-            label="Write your expectations from this workshop"
-            value={formData.feedback}
-            onChange={(event) => handleInputChange(event, "feedback")}
-            error={!!formErrors.feedback}
-            helperText={formErrors.feedback}
+            label="Expectations from this workshop."
+            value={formData.expectations}
+            onChange={(event) => handleInputChange(event, "expectations")}
+            error={!!formErrors.expectations}
+            helperText={formErrors.expectations}
             multiline
             rows={4}
             style={{ marginBottom: "10px" }}
