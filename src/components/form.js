@@ -19,7 +19,7 @@ const Form = () => {
   const [interest, setInterest] = useState(false);
   const [inductionDomainS, setInductionDomainS] = useState("");
   const [inductionDomainP, setInductionDomainP] = useState("");
-  const [enigma,setEnigma]=useState("");
+  const [enigma, setEnigma] = useState("");
   const [loading, setLoading] = useState(false);
   const inductionDomainOptionsS = [
     "Web Dev",
@@ -44,8 +44,8 @@ const Form = () => {
 
   const [formData, setFormData] = useState({
     name: "",
-    gender:"",
-    year:"",
+    gender: "",
+    year: "",
     regd: "",
     branch: "",
     section: "",
@@ -55,8 +55,8 @@ const Form = () => {
   });
   const [formErrors, setFormErrors] = useState({
     name: "",
-    gender:"",
-    year:"",
+    gender: "",
+    year: "",
     regd: "",
     branch: "",
     section: "",
@@ -78,7 +78,7 @@ const Form = () => {
     "Production Engineering",
   ];
 
-  const gender=["Male","Female","Prefer not to say"]
+  const gender = ["Male", "Female", "Prefer not to say"];
 
   const sectionOptions = [
     "A",
@@ -97,7 +97,7 @@ const Form = () => {
     "N",
   ];
 
-  const yearOptions=["2025","2026","2027"];
+  const yearOptions = ["2025", "2026", "2027"];
 
   const handleInputChange = (event, key) => {
     const { value } = event.target;
@@ -168,7 +168,7 @@ const Form = () => {
       email: formData.email,
       contact: formData.contact,
       expectations: formData.expectations,
-      enigmaMotivation:enigma,
+      enigmaMotivation: enigma,
       primary_domain: inductionDomainP,
       secondary_domain: inductionDomainS,
     };
@@ -187,7 +187,7 @@ const Form = () => {
             to: formData.email,
             subject: "Thanking you for registration  ",
             text: "Welcome To Enigma",
-            html: `     <div className="form-container" style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+            html: `    
           <h1 style="text-align:center;">Thank You</h1>
           <img src="https://i.postimg.cc/G2zKrspj/LIFT-OFF-C-Course.jpg" alt="Poster" style="max-width: 100%; height: auto;></img>
           <p>Best regards,</p>
@@ -203,7 +203,7 @@ const Form = () => {
             <i className="fab fa-twitter" style={{ fontSize: "24px", margin: "0 10px", color: "green" }}></i>
           </a>
         </div>
-      </div>
+      
 `,
           };
 
@@ -220,8 +220,8 @@ const Form = () => {
 
           setFormData({
             name: "",
-            year:"",
-            gender:"",
+            year: "",
+            gender: "",
             regd: "",
             branch: "",
             section: "",
@@ -273,14 +273,36 @@ const Form = () => {
               top: 0,
               left: 0,
             }}
-            />
+          />
         </a>
         <div
           className="form-container"
           style={{ display: "flex", flexDirection: "column", gap: "5px" }}
-          >
+        >
           <h1>Registration Form</h1>
           <TextField
+            sx={{
+              "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                border: "1px solid white",
+              }, 
+              "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                { border: "2px solid green" }, 
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                { border: "3px solid green" },
+              "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                border: "2px solid red",
+              },
+              "& .MuiOutlinedInput-input": {
+                color: "white", 
+              },
+              "& .MuiInputLabel-root": {
+                color: "green",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "green", 
+              },
+              
+            }}
             type="text"
             color="success"
             defaultValue=""
@@ -312,87 +334,162 @@ const Form = () => {
               marginTop: "10px",
             }}
           >
-              <FormControl error={!!formErrors.gender} style={{ width: "48%" }}>
-                  <InputLabel id="gender-label" style={{ color: "green" }}>
-                    Gender
-                  </InputLabel>
-                  <Select
-                    type="text"
-                    color="success"
-                    defaultValue="success"
-                    autoComplete="off"
-                    labelId="gender-label"
-                    id="gender"
-                    value={formData.gender}
-                    label="Gender"
-                    style={{ marginBottom: "10px", width: "100%" }}
-                    onChange={(event) => handleInputChange(event, "gender")}
-                    InputLabelProps={{
-                      shrink: true,
-                      style: { color: "green" },
-                    }}
-                    InputProps={{
-                      style: {
-                        borderColor: formErrors.gender ? "red" : "green",
-                        "&:focus": {
-                          borderColor: "green",
-                        },
-                      },
-                    }}
-                  >
-                    <MenuItem value="" disabled>
-                      <em>Select Gender</em>
-                    </MenuItem>
-                    {gender.map((option, index) => (
-                      <MenuItem key={index} value={option}>
-                        {option}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                  <FormHelperText>{formErrors.gender}</FormHelperText>
-                </FormControl>
+            <FormControl
+              error={!!formErrors.gender}
+              style={{ width: "48%" }}
+              sx={{
+                "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                  border: "1px solid white",
+                }, 
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  { border: "2px solid green" }, 
+                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                  { border: "3px solid green" },
+                "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                  border: "2px solid red",
+                },
+                "& .MuiOutlinedInput-input": {
+                  color: "white", 
+                },
+                "& .MuiInputLabel-root": {
+                  color: "green",
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  color: "green", 
+                },
+                
+              }}
+            >
+              <InputLabel id="gender-label" style={{ color: "green" }}>
+                Gender
+              </InputLabel>
+              <Select
+                type="text"
+                color="success"
+                defaultValue="success"
+                autoComplete="off"
+                labelId="gender-label"
+                id="gender"
+                value={formData.gender}
+                label="Gender"
+                style={{ marginBottom: "10px", width: "100%" }}
+                onChange={(event) => handleInputChange(event, "gender")}
+                InputLabelProps={{
+                  shrink: true,
+                  style: { color: "green" },
+                }}
+                InputProps={{
+                  style: {
+                    borderColor: formErrors.gender ? "red" : "green",
+                    "&:focus": {
+                      borderColor: "green",
+                    },
+                  },
+                }}
+              >
+                <MenuItem value="" disabled>
+                  <em>Select Gender</em>
+                </MenuItem>
+                {gender.map((option, index) => (
+                  <MenuItem key={index} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+              <FormHelperText>{formErrors.gender}</FormHelperText>
+            </FormControl>
 
-                <FormControl error={!!formErrors.year} style={{ width: "48%" }}>
-                  <InputLabel id="year-label" style={{ color: "green",zIndex:"99" }}>
-                    Graduation year
-                  </InputLabel>
-                  <Select
-                    type="text"
-                    color="success"
-                    defaultValue="success"
-                    autoComplete="off"
-                    labelId="year-label"
-                    id="year"
-                    value={formData.year}
-                    label="Graduation year"
-                    style={{ marginBottom: "10px", width: "100%" }}
-                    onChange={(event) => handleInputChange(event, "year")}
-                    InputLabelProps={{
-                      style: { color: "green" },
-                    }}
-                    InputProps={{
-                      style: {
-                        borderColor: formErrors.gender ? "red" : "green",
-                        "&:focus": {
-                          borderColor: "green",
-                        },
-                      },
-                    }}
-                  >
-                    <MenuItem value="" disabled>
-                      <em>Select Year</em>
-                    </MenuItem>
-                    {yearOptions.map((option, index) => (
-                      <MenuItem key={index} value={option}>
-                        {option}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                  <FormHelperText>{formErrors.year}</FormHelperText>
-                </FormControl>
+            <FormControl
+              error={!!formErrors.year}
+              style={{ width: "48%" }}
+              sx={{
+                "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                  border: "1px solid white",
+                }, 
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  { border: "2px solid green" }, 
+                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                  { border: "3px solid green" },
+                "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                  border: "2px solid red",
+                },
+                "& .MuiOutlinedInput-input": {
+                  color: "white", 
+                },
+                "& .MuiInputLabel-root": {
+                  color: "green",
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  color: "green", 
+                },
+                
+              }}
+            >
+              <InputLabel
+                id="year-label"
+                style={{ color: "green", zIndex: "99" }}
+              >
+                Graduation year
+              </InputLabel>
+              <Select
+                type="text"
+                color="success"
+                defaultValue="success"
+                autoComplete="off"
+                labelId="year-label"
+                id="year"
+                value={formData.year}
+                label="Graduation year"
+                style={{ marginBottom: "10px", width: "100%" }}
+                onChange={(event) => handleInputChange(event, "year")}
+                InputLabelProps={{
+                  style: { color: "green" },
+                }}
+                InputProps={{
+                  style: {
+                    borderColor: formErrors.gender ? "red" : "green",
+                    "&:focus": {
+                      borderColor: "green",
+                    },
+                  },
+                }}
+              >
+                <MenuItem value="" disabled>
+                  <em>Select Year</em>
+                </MenuItem>
+                {yearOptions.map((option, index) => (
+                  <MenuItem key={index} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+              <FormHelperText>{formErrors.year}</FormHelperText>
+            </FormControl>
           </div>
 
           <TextField
+            sx={{
+              "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                border: "1px solid white",
+              }, 
+              "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                { border: "2px solid green" }, 
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                { border: "3px solid green" },
+              "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                border: "2px solid red",
+              },
+              "& .MuiOutlinedInput-input": {
+                color: "white", 
+              },
+              "& .MuiInputLabel-root": {
+                color: "green",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "green", 
+              },
+              
+            }}
             type="text"
             color="success"
             defaultValue="success"
@@ -414,6 +511,29 @@ const Form = () => {
             }}
           />
           <TextField
+            sx={{
+              "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                border: "1px solid white",
+              }, 
+              "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                { border: "2px solid green" }, 
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                { border: "3px solid green" },
+              "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                border: "2px solid red",
+              },
+              "& .MuiOutlinedInput-input": {
+                color: "white", 
+              },
+              "& .MuiInputLabel-root": {
+                color: "green",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "green", 
+              },
+              
+             
+            }}
             type="text"
             color="success"
             defaultValue="success"
@@ -443,10 +563,39 @@ const Form = () => {
               width: "100%",
             }}
           >
-            <FormControl error={!!formErrors.branch} style={{ width: "48%" }}>
-              <InputLabel id="branch-label" style={{ color: "green",borderColor:"white" }}>
+            <FormControl
+              error={!!formErrors.branch}
+              style={{ width: "48%" }}
+              sx={{
+                "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                  border: "1px solid white",
+                }, 
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  { border: "2px solid green" }, 
+                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                  { border: "3px solid green" },
+                "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                  border: "2px solid red",
+                },
+                "& .MuiOutlinedInput-input": {
+                  color: "white", 
+                },
+                "& .MuiInputLabel-root": {
+                  color: "green",
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  color: "green", 
+                },
+                
+              }}
+            >
+              <InputLabel
+                id="branch-label"
+                style={{ color: "green", borderColor: "white" }}
+              >
                 Branch
               </InputLabel>
+
               <Select
                 type="text"
                 color="success"
@@ -478,10 +627,36 @@ const Form = () => {
                   </MenuItem>
                 ))}
               </Select>
+
               <FormHelperText>{formErrors.branch}</FormHelperText>
             </FormControl>
 
-            <FormControl error={!!formErrors.section} style={{ width: "48%" }}>
+            <FormControl
+              error={!!formErrors.section}
+              style={{ width: "48%" }}
+              sx={{
+                "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                  border: "1px solid white",
+                }, 
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  { border: "2px solid green" }, 
+                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                  { border: "3px solid green" },
+                "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                  border: "2px solid red",
+                },
+                "& .MuiOutlinedInput-input": {
+                  color: "white", 
+                },
+                "& .MuiInputLabel-root": {
+                  color: "green",
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  color: "green", 
+                },
+                
+              }}
+            >
               <InputLabel id="section-label" style={{ color: "green" }}>
                 Section
               </InputLabel>
@@ -520,6 +695,28 @@ const Form = () => {
             </FormControl>
           </div>
           <TextField
+            sx={{
+              "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                border: "1px solid white",
+              }, 
+              "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                { border: "2px solid green" }, 
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                { border: "3px solid green" },
+              "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                border: "2px solid red",
+              },
+              "& .MuiOutlinedInput-input": {
+                color: "white", 
+              },
+              "& .MuiInputLabel-root": {
+                color: "green",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "green", 
+              },
+              
+            }}
             type="text"
             color="success"
             defaultValue="success"
@@ -542,6 +739,28 @@ const Form = () => {
           />
 
           <TextField
+            sx={{
+              "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                border: "1px solid white",
+              }, 
+              "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                { border: "2px solid green" }, 
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                { border: "3px solid green" },
+              "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                border: "2px solid red",
+              },
+              "& .MuiOutlinedInput-input": {
+                color: "white", 
+              },
+              "& .MuiInputLabel-root": {
+                color: "green",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "green", 
+              },
+              
+            }}
             type="text"
             color="success"
             defaultValue="success"
@@ -588,6 +807,28 @@ const Form = () => {
           {interest && (
             <div style={{ marginTop: "10px", marginBottom: "10px" }}>
               <TextField
+                sx={{
+                  "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                    border: "1px solid white",
+                  }, 
+                  "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                    { border: "2px solid green" }, 
+                  "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                    { border: "3px solid green" },
+                  "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                    border: "2px solid red",
+                  },
+                  "& .MuiOutlinedInput-input": {
+                    color: "white", 
+                  },
+                  "& .MuiInputLabel-root": {
+                    color: "green",
+                  },
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "green", 
+                  },
+                  
+                }}
                 type="text"
                 color="success"
                 autoComplete="off"
@@ -596,10 +837,9 @@ const Form = () => {
                 label="Why do you want to join Enigma?"
                 value={enigma}
                 onChange={(event) => setEnigma(event.target.value)}
-
                 multiline
                 rows={4}
-                style={{ marginBottom: "10px",width:"100%" }}
+                style={{ marginBottom: "10px", width: "100%" }}
                 InputLabelProps={{
                   style: { color: "green" },
                   focused: false,
@@ -629,7 +869,31 @@ const Form = () => {
                   marginTop: "10px",
                 }}
               >
-                <FormControl style={{ width: "100%" }}>
+                <FormControl
+                  style={{ width: "100%" }}
+                  sx={{
+                    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                      border: "1px solid white",
+                    }, 
+                    "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                      { border: "2px solid green" }, 
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                      { border: "3px solid green" },
+                    "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                      border: "2px solid red",
+                    },
+                    "& .MuiOutlinedInput-input": {
+                      color: "white", 
+                    },
+                    "& .MuiInputLabel-root": {
+                      color: "green",
+                    },
+                    "& .MuiInputLabel-root.Mui-focused": {
+                      color: "green", 
+                    },
+                    
+                  }}
+                >
                   <InputLabel id="domainp-label" style={{ color: "green" }}>
                     Primary
                   </InputLabel>
@@ -668,11 +932,35 @@ const Form = () => {
                   </Select>
                   <FormHelperText></FormHelperText>
                 </FormControl>
-                <FormControl style={{ width: "100%" }}>
+                <FormControl
+                  style={{ width: "100%" }}
+                  sx={{
+                    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                      border: "1px solid white",
+                    }, 
+                    "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                      { border: "2px solid green" }, 
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                      { border: "3px solid green" },
+                    "& .Mui-error .MuiOutlinedInput-notchedOutline": {
+                      border: "2px solid red",
+                    },
+                    "& .MuiOutlinedInput-input": {
+                      color: "white", 
+                    },
+                    "& .MuiInputLabel-root": {
+                      color: "green",
+                    },
+                    "& .MuiInputLabel-root.Mui-focused": {
+                      color: "green", 
+                    },
+                    
+                  }}
+                >
                   <InputLabel
                     id="domains-label"
                     style={{
-                      color: "green"
+                      color: "green",
                     }}
                   >
                     Secondary

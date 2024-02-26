@@ -14,7 +14,11 @@
 .form-container {
   margin-top: 2%;
 
-  background: radial-gradient(circle at 0% 0.5%, rgb(241, 241, 242) 0.1%, rgb(224, 226, 228) 100.2%);
+  border-radius: 53px;
+  background: #100f0f;
+  box-shadow:  18px 18px 36px #080808,
+               -18px -18px 36px #181616;
+  border: 1px solid white;
   padding: 20px;
   border-radius: 8px;
   height: auto;
@@ -23,7 +27,7 @@
  
 }
 h1 {
-color: #0e0707;
+color: #fcfafa;
   font-weight: bold;
   font-size: 40px;
   margin-bottom: 20px;
