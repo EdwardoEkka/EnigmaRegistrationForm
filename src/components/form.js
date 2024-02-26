@@ -471,7 +471,7 @@ const Form = () => {
             helperText={formErrors.name}
             style={{ marginBottom: "10px", width: "100%" }}
             InputLabelProps={{
-              style: { color: "green" },
+              style: { color: "white" },
             }}
             InputProps={{
               style: {
@@ -516,7 +516,7 @@ const Form = () => {
                 
               }}
             >
-              <InputLabel id="gender-label" style={{ color: "green" }}>
+              <InputLabel id="gender-label" style={{ color: "white" }}>
                 Gender
               </InputLabel>
               <Select
@@ -583,7 +583,7 @@ const Form = () => {
             >
               <InputLabel
                 id="year-label"
-                style={{ color: "green", zIndex: "99" }}
+                style={{ color: "white", zIndex: "99" }}
               >
                 Graduation year
               </InputLabel>
@@ -599,7 +599,7 @@ const Form = () => {
                 style={{ marginBottom: "10px", width: "100%" }}
                 onChange={(event) => handleInputChange(event, "year")}
                 InputLabelProps={{
-                  style: { color: "green" },
+                  style: { color: "white" },
                 }}
                 InputProps={{
                   style: {
@@ -658,7 +658,7 @@ const Form = () => {
             helperText={formErrors.email}
             style={{ marginBottom: "10px" }}
             InputLabelProps={{
-              style: { color: "green" },
+              style: { color: "white" },
               focused: false,
             }}
             InputProps={{
@@ -702,7 +702,7 @@ const Form = () => {
             helperText={formErrors.regd}
             style={{ marginBottom: "10px" }}
             InputLabelProps={{
-              style: { color: "green" },
+              style: { color: "white" },
               focused: false,
             }}
             InputProps={{
@@ -747,7 +747,7 @@ const Form = () => {
             >
               <InputLabel
                 id="branch-label"
-                style={{ color: "green", borderColor: "white" }}
+                style={{ color: "white", borderColor: "white" }}
               >
                 Branch
               </InputLabel>
@@ -813,7 +813,7 @@ const Form = () => {
                 
               }}
             >
-              <InputLabel id="section-label" style={{ color: "green" }}>
+              <InputLabel id="section-label" style={{ color: "white" }}>
                 Section
               </InputLabel>
               <Select
@@ -827,7 +827,7 @@ const Form = () => {
                 label="Section"
                 onChange={(event) => handleInputChange(event, "section")}
                 InputLabelProps={{
-                  style: { color: "green" },
+                  style: { color: "white" },
                 }}
                 InputProps={{
                   style: {
@@ -885,7 +885,7 @@ const Form = () => {
             helperText={formErrors.contact}
             style={{ marginTop: "7px", marginBottom: "10px" }}
             InputLabelProps={{
-              style: { color: "green" },
+              style: { color: "white" },
               focused: false,
             }}
             InputProps={{
@@ -931,7 +931,7 @@ const Form = () => {
             rows={4}
             style={{ marginBottom: "10px" }}
             InputLabelProps={{
-              style: { color: "green" },
+              style: { color: "white" },
               focused: false,
             }}
             InputProps={{
@@ -956,7 +956,7 @@ const Form = () => {
               />
             </span>
 
-            <span style={{ color: "green", marginBottom: "10px" }}>
+            <span style={{ color: "white", marginBottom: "10px" }}>
               Interested to take part in Enigma Induction?
             </span>
           </div>
@@ -997,7 +997,7 @@ const Form = () => {
                 rows={4}
                 style={{ marginBottom: "10px", width: "100%" }}
                 InputLabelProps={{
-                  style: { color: "green" },
+                  style: { color: "white" },
                   focused: false,
                 }}
                 InputProps={{
@@ -1013,7 +1013,7 @@ const Form = () => {
                   gap: "10px",
                 }}
               >
-                <span style={{ color: "green", marginBottom: "10px" }}>
+                <span style={{ color: "white", marginBottom: "10px" }}>
                   Choose Domains
                 </span>
               </div>
@@ -1050,7 +1050,7 @@ const Form = () => {
                     
                   }}
                 >
-                  <InputLabel id="domainp-label" style={{ color: "green" }}>
+                  <InputLabel id="domainp-label" style={{ color: "white" }}>
                     Primary
                   </InputLabel>
                   <Select
@@ -1116,7 +1116,7 @@ const Form = () => {
                   <InputLabel
                     id="domains-label"
                     style={{
-                      color: "green",
+                      color: "white",
                     }}
                   >
                     Secondary
