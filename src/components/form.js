@@ -216,9 +216,9 @@ const Form = () => {
                     <p style="font-size: 16px; color: #555;">ENIGMA-VSSUT</p>
                 </div>
                 <div style="text-align: center; margin-top: 20px;">
-                    <a href="#" style="margin-right: 10px;"><img src="instagram-icon-url" alt="Instagram"></a>
-                    <a href="#" style="margin-right: 10px;"><img src="linkedin-icon-url" alt="LinkedIn"></a>
-                    <a href="#" style="margin-right: 10px;"><img src="github-icon-url" alt="GitHub"></a>
+                    <a href="https://www.instagram.com/enigma_vssut/"  rel="noreferrer" target="_blank" style="margin-right: 10px;"><img src="https://e7.pngegg.com/pngimages/562/254/png-clipart-instagram-small-logo-social-media-icons.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/company/enigma-vssut/mycompany/"   rel="noreferrer" target="_blank" style="margin-right: 10px;"><img src="https://e7.pngegg.com/pngimages/524/809/png-clipart-computer-icons-resume-linkedin-logo-job-hunting-others-blue-angle.png" alt="LinkedIn"></a>
+                    
                 </div>
             </body>
             </html>
@@ -445,14 +445,7 @@ const Form = () => {
                 InputLabelProps={{
                   style: { color: "white" },
                 }}
-                // InputProps={{
-                //   style: {
-                //     borderColor: formErrors.gender ? "red" : "green",
-                //     "&:focus": {
-                //       borderColor: "green",
-                //     },
-                //   },
-                // }}
+               
               >
                 <MenuItem value="" disabled>
                   <em>Select Year</em>
@@ -504,10 +497,7 @@ const Form = () => {
               style: { color: "white" },
               focused: false,
             }}
-            // InputProps={{
-            //   style: { borderColor: "green" },
-            //   focused: false,
-            // }}
+           
           />
           <TextField
             sx={{
