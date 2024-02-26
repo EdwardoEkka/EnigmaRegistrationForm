@@ -189,7 +189,7 @@ const Form = () => {
             text: "Welcome To Enigma",
             html: ` 
             <h1 style="text-align:center;">Thank You</h1>
-            <img src="https://i.postimg.cc/G2zKrspj/LIFT-OFF-C-Course.jpg"alt="Poster image">
+            <img src="https://i.postimg.cc/G2zKrspj/LIFT-OFF-C-Course.jpg" alt="Poster image">
             <p>Best regards</p>
             <p>ENIGMA-VSSUT</p>
            `,
