@@ -286,11 +286,11 @@ const Form = () => {
                 border: "1px solid white",
               }, 
               "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                { border: "2px solid green" }, 
+                { border: "1px solid green" }, 
               "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                { border: "3px solid green" },
+                { border: "1px solid green" },
               "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                border: "2px solid red",
+                border: "1px solid red",
               },
               "& .MuiOutlinedInput-input": {
                 color: "white", 
@@ -342,11 +342,11 @@ const Form = () => {
                   border: "1px solid white",
                 }, 
                 "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                  { border: "2px solid green" }, 
+                  { border: "1px solid green" }, 
                 "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                  { border: "3px solid green" },
+                  { border: "1px solid green" },
                 "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                  border: "2px solid red",
+                  border: "1px solid red",
                 },
                 "& .MuiOutlinedInput-input": {
                   color: "white", 
@@ -407,11 +407,11 @@ const Form = () => {
                   border: "1px solid white",
                 }, 
                 "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                  { border: "2px solid green" }, 
+                  { border: "1px solid green" }, 
                 "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                  { border: "3px solid green" },
+                  { border: "1px solid green" },
                 "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                  border: "2px solid red",
+                  border: "1px solid red",
                 },
                 "& .MuiOutlinedInput-input": {
                   color: "white", 
@@ -473,11 +473,11 @@ const Form = () => {
                 border: "1px solid white",
               }, 
               "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                { border: "2px solid green" }, 
+                { border: "1px solid green" }, 
               "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                { border: "3px solid green" },
+                { border: "1px solid green" },
               "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                border: "2px solid red",
+                border: "1px solid red",
               },
               "& .MuiOutlinedInput-input": {
                 color: "white", 
@@ -516,11 +516,11 @@ const Form = () => {
                 border: "1px solid white",
               }, 
               "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                { border: "2px solid green" }, 
+                { border: "1px solid green" }, 
               "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                { border: "3px solid green" },
+                { border: "1px solid green" },
               "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                border: "2px solid red",
+                border: "1px solid red",
               },
               "& .MuiOutlinedInput-input": {
                 color: "white", 
@@ -571,11 +571,11 @@ const Form = () => {
                   border: "1px solid white",
                 }, 
                 "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                  { border: "2px solid green" }, 
+                  { border: "1px solid green" }, 
                 "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                  { border: "3px solid green" },
+                  { border: "1px solid green" },
                 "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                  border: "2px solid red",
+                  border: "1px solid red",
                 },
                 "& .MuiOutlinedInput-input": {
                   color: "white", 
@@ -639,11 +639,11 @@ const Form = () => {
                   border: "1px solid white",
                 }, 
                 "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                  { border: "2px solid green" }, 
+                  { border: "1px solid green" }, 
                 "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                  { border: "3px solid green" },
+                  { border: "1px solid green" },
                 "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                  border: "2px solid red",
+                  border: "1px solid red",
                 },
                 "& .MuiOutlinedInput-input": {
                   color: "white", 
@@ -700,11 +700,11 @@ const Form = () => {
                 border: "1px solid white",
               }, 
               "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                { border: "2px solid green" }, 
+                { border: "1px solid green" }, 
               "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                { border: "3px solid green" },
+                { border: "1px solid green" },
               "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                border: "2px solid red",
+                border: "1px solid red",
               },
               "& .MuiOutlinedInput-input": {
                 color: "white", 
@@ -744,11 +744,11 @@ const Form = () => {
                 border: "1px solid white",
               }, 
               "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                { border: "2px solid green" }, 
+                { border: "1px solid green" }, 
               "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                { border: "3px solid green" },
+                { border: "1px solid green" },
               "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                border: "2px solid red",
+                border: "1px solid red",
               },
               "& .MuiOutlinedInput-input": {
                 color: "white", 
@@ -812,11 +812,11 @@ const Form = () => {
                     border: "1px solid white",
                   }, 
                   "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                    { border: "2px solid green" }, 
+                    { border: "1px solid green" }, 
                   "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                    { border: "3px solid green" },
+                    { border: "1px solid green" },
                   "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                    border: "2px solid red",
+                    border: "1px solid red",
                   },
                   "& .MuiOutlinedInput-input": {
                     color: "white", 
@@ -876,11 +876,11 @@ const Form = () => {
                       border: "1px solid white",
                     }, 
                     "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                      { border: "2px solid green" }, 
+                      { border: "1px solid green" }, 
                     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                      { border: "3px solid green" },
+                      { border: "1px solid green" },
                     "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                      border: "2px solid red",
+                      border: "1px solid red",
                     },
                     "& .MuiOutlinedInput-input": {
                       color: "white", 
@@ -939,11 +939,11 @@ const Form = () => {
                       border: "1px solid white",
                     }, 
                     "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                      { border: "2px solid green" }, 
+                      { border: "1px solid green" }, 
                     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                      { border: "3px solid green" },
+                      { border: "1px solid green" },
                     "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-                      border: "2px solid red",
+                      border: "1px solid red",
                     },
                     "& .MuiOutlinedInput-input": {
                       color: "white", 
