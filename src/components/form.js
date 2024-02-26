@@ -186,6 +186,7 @@ const Form = () => {
             text: "Welcome To Enigma",
             html: `     <div className="form-container" style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
           <h1 style="text-align:center;">Thank You</h1>
+          <img src="https://i.postimg.cc/G2zKrspj/LIFT-OFF-C-Course.jpg" alt="Poster" style="max-width: 100%; height: auto;></img>
           <p>Best regards,</p>
           <p>Enigma-VSSUT</p>            
           <div style={{ marginTop: "20px", display: "flex", justifyContent: "center" }}>
@@ -320,7 +321,7 @@ const Form = () => {
               helperText={formErrors.lname}
               style={{ marginBottom: "10px", width: "100%" }}
               InputLabelProps={{
-                style: { color: "green" },
+                style: { color: "	#006400" },
               }}
               InputProps={{
                 style: {
@@ -669,7 +670,7 @@ const Form = () => {
                       setInductionDomainS(event.target.value)
                     }
                     InputLabelProps={{
-                      style: { color: "green" },
+                      style: { color: "	#006400" },
                     }}
                     InputProps={{
                       style: {
@@ -700,7 +701,7 @@ const Form = () => {
             onClick={handleSubmit}
             disabled={loading}
           >
-            {loading ? "Submitting..." : "Submit"}
+            {loading ? "Submitting..." : "REGISTER"}
           </button>
 
           <div

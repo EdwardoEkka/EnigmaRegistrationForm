@@ -43,7 +43,7 @@ input {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #41ac08;
+  border: 1px solid	#006400;
   border-radius: 4px;
   box-sizing: border-box;
   transition: border-color 0.3s;
@@ -51,7 +51,7 @@ input {
 
 input:focus {
   outline: none !important;;
-  border-color: #5cb85c;
+  border-color: #097209;
 }
 input:focus,
 select:focus {
