@@ -11,6 +11,7 @@ import {
 import { toast, Toaster } from "react-hot-toast";
 import "./form.css";
 import logo from "../components/images/EnigmaLogo.png";
+
 // import Matrix from "./Matrix";
 
 const Form = () => {
@@ -42,9 +43,9 @@ const Form = () => {
   ];
 
   const [formData, setFormData] = useState({
-    fname: "",
-    lname: "",
+    name: "",
     gender:"",
+    year:"",
     regd: "",
     branch: "",
     section: "",
@@ -53,9 +54,9 @@ const Form = () => {
     feedback: "",
   });
   const [formErrors, setFormErrors] = useState({
-    fname: "",
-    lname: "",
+    name: "",
     gender:"",
+    year:"",
     regd: "",
     branch: "",
     section: "",
@@ -95,6 +96,8 @@ const Form = () => {
     "M",
     "N",
   ];
+
+  const yearOptions=["2025","2026","2027"];
 
   const handleInputChange = (event, key) => {
     const { value } = event.target;
@@ -156,8 +159,8 @@ const Form = () => {
     console.log(inductionDomainP, inductionDomainS);
     const newItem = {
       date: dateObject.toLocaleString(),
-      first_name: formData.fname,
-      last_name: formData.lname,
+      name: formData.name,
+      year: formData.year,
       gender: formData.gender,
       regd: formData.regd,
       branch: formData.branch,
@@ -216,8 +219,9 @@ const Form = () => {
             .catch((error) => console.error(error));
 
           setFormData({
-            fname: "",
-            lname: "",
+            name: "",
+            year:"",
+            gender:"",
             regd: "",
             branch: "",
             section: "",
@@ -269,12 +273,12 @@ const Form = () => {
               top: 0,
               left: 0,
             }}
-          />
+            />
         </a>
         <div
           className="form-container"
           style={{ display: "flex", flexDirection: "column", gap: "5px" }}
-        >
+          >
           <h1>Registration Form</h1>
           <TextField
             type="text"
@@ -282,11 +286,11 @@ const Form = () => {
             defaultValue=""
             id="name"
             autoComplete="off"
-            label="First Name"
+            label="Name"
             value={formData.fname}
-            onChange={(event) => handleInputChange(event, "fname")}
-            error={!!formErrors.fname}
-            helperText={formErrors.fname}
+            onChange={(event) => handleInputChange(event, "name")}
+            error={!!formErrors.name}
+            helperText={formErrors.name}
             style={{ marginBottom: "10px", width: "100%" }}
             InputLabelProps={{
               style: { color: "green" },
@@ -308,32 +312,8 @@ const Form = () => {
               marginTop: "10px",
             }}
           >
-            <TextField
-              type="text"
-              color="success"
-              defaultValue=""
-              id="name"
-              autoComplete="off"
-              label="Last Name"
-              value={formData.lname}
-              onChange={(event) => handleInputChange(event, "lname")}
-              error={!!formErrors.lname}
-              helperText={formErrors.lname}
-              style={{ marginBottom: "10px", width: "100%" }}
-              InputLabelProps={{
-                style: { color: "	#006400" },
-              }}
-              InputProps={{
-                style: {
-                  borderColor: "green !important",
-                  "&:focus": {
-                    borderColor: "green !important",
-                  },
-                },
-              }}
-            />
-              <FormControl error={!!formErrors.branch} style={{ width: "48%" }}>
-                  <InputLabel id="branch-label" style={{ color: "green" }}>
+              <FormControl error={!!formErrors.gender} style={{ width: "48%" }}>
+                  <InputLabel id="gender-label" style={{ color: "green" }}>
                     Gender
                   </InputLabel>
                   <Select
@@ -348,6 +328,7 @@ const Form = () => {
                     style={{ marginBottom: "10px", width: "100%" }}
                     onChange={(event) => handleInputChange(event, "gender")}
                     InputLabelProps={{
+                      shrink: true,
                       style: { color: "green" },
                     }}
                     InputProps={{
@@ -369,6 +350,45 @@ const Form = () => {
                     ))}
                   </Select>
                   <FormHelperText>{formErrors.gender}</FormHelperText>
+                </FormControl>
+
+                <FormControl error={!!formErrors.year} style={{ width: "48%" }}>
+                  <InputLabel id="year-label" style={{ color: "green",zIndex:"99" }}>
+                    Year of Passing
+                  </InputLabel>
+                  <Select
+                    type="text"
+                    color="success"
+                    defaultValue="success"
+                    autoComplete="off"
+                    labelId="year-label"
+                    id="year"
+                    value={formData.year}
+                    label="Year of Passing"
+                    style={{ marginBottom: "10px", width: "100%" }}
+                    onChange={(event) => handleInputChange(event, "year")}
+                    InputLabelProps={{
+                      style: { color: "green" },
+                    }}
+                    InputProps={{
+                      style: {
+                        borderColor: formErrors.gender ? "red" : "green",
+                        "&:focus": {
+                          borderColor: "green",
+                        },
+                      },
+                    }}
+                  >
+                    <MenuItem value="" disabled>
+                      <em>Select Year</em>
+                    </MenuItem>
+                    {yearOptions.map((option, index) => (
+                      <MenuItem key={index} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                  <FormHelperText>{formErrors.year}</FormHelperText>
                 </FormControl>
           </div>
 
@@ -610,7 +630,7 @@ const Form = () => {
                 }}
               >
                 <FormControl style={{ width: "100%" }}>
-                  <InputLabel id="branch-label" style={{ color: "green" }}>
+                  <InputLabel id="domainp-label" style={{ color: "green" }}>
                     Primary
                   </InputLabel>
                   <Select
@@ -618,10 +638,10 @@ const Form = () => {
                     color="success"
                     defaultValue="success"
                     autoComplete="off"
-                    labelId="domains"
-                    id="domains"
+                    labelId="domainp"
+                    id="domainp"
                     value={inductionDomainP}
-                    label="domain"
+                    label="Primary"
                     onChange={(event) =>
                       setInductionDomainP(event.target.value)
                     }
@@ -650,7 +670,7 @@ const Form = () => {
                 </FormControl>
                 <FormControl style={{ width: "100%" }}>
                   <InputLabel
-                    id="branch-label"
+                    id="domains-label"
                     style={{
                       color: "green"
                     }}
@@ -662,10 +682,10 @@ const Form = () => {
                     color="success"
                     defaultValue="success"
                     autoComplete="off"
-                    labelId="domains"
+                    labelId="domains-label"
                     id="domains"
                     value={inductionDomainS}
-                    label="domain"
+                    label="Secondary"
                     onChange={(event) =>
                       setInductionDomainS(event.target.value)
                     }
