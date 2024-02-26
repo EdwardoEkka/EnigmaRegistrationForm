@@ -8,7 +8,7 @@ import Marquee from "react-fast-marquee";
 
 const Welcome = () => {
   const navigate = useNavigate();
-  const endTime = new Date("March 11, 2024 00:00:00").getTime();
+  const endTime = new Date("March 9, 2024 00:00:00").getTime();
   const [currentTime, setcurrentTime] = useState(new Date().getTime());
 
   const gap = endTime - currentTime;
