@@ -216,11 +216,11 @@ const Form = () => {
                 </div>
                 <div style="text-align: center; margin-top: 20px;">
                     <div style="display: flex; justify-content: center; align-items: center;">
-                        <a href="https://www.instagram.com/enigma_vssut/" rel="noreferrer" target="_blank" style="margin-right: 10px;">
-                            <img src="/images/insta.png" alt="Instagram" style="width: 50px; height: auto;">
+                        <a href="https://www.instagram.com/enigma_vssut/" rel="noreferrer" target="_blank" ">
+                            <img src="https://cdn.mobilesyrup.com/wp-content/uploads/2022/05/Insta.jpg" alt="Instagram" style="width: 50px; height: 50px;">
                         </a>
-                        <a href="https://www.linkedin.com/company/enigma-vssut/mycompany/" rel="noreferrer" target="_blank" style="margin-right: 10px;">
-                            <img src="https://e7.pngegg.com/pngimages/524/809/png-clipart-computer-icons-resume-linkedin-logo-job-hunting-others-blue-angle.png" alt="LinkedIn" style="width: 50px; height: auto;">
+                        <a href="https://www.linkedin.com/company/enigma-vssut/mycompany/" rel="noreferrer" target="_blank" ">
+                            <img src="https://icon-library.com/images/official-linkedin-icon-png/official-linkedin-icon-png-16.jpg" alt="LinkedIn" style="width: 50px; height: 50px;">
                         </a>
                     </div>
                 </div>
