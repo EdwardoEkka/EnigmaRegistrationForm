@@ -185,15 +185,46 @@ const Form = () => {
 
           const emailData = {
             to: formData.email,
-            subject: "Thanking you for registration  ",
+            subject: "Thanking you for registration",
             text: "Welcome To Enigma",
-            html: ` 
-            <h1 style="text-align:center;">Thank You</h1>
-            <img src="https://i.postimg.cc/G2zKrspj/LIFT-OFF-C-Course.jpg" alt="Poster image">
-            <p>Best regards</p>
-            <p>ENIGMA-VSSUT</p>
-           `,
-          };
+            html: `
+            <html>
+            <head>
+                <style>
+                    @media only screen and (max-width: 600px) {
+                        body {
+                            width: 100% !important;
+                            margin: 0 !important;
+                            padding: 0 !important;
+                        }
+        
+                        h1 {
+                            font-size: 24px !important;
+                        }
+        
+                        p {
+                            font-size: 14px !important;
+                        }
+                    }
+                </style>
+            </head>
+            <body style="margin: 0; padding: 0; width: 100%; background-color: #f5f5f5;">
+                <div style="text-align: center;">
+                    <h1 style="text-align:center; color: #333;">Thank You</h1>
+                    <img src="https://i.postimg.cc/G2zKrspj/LIFT-OFF-C-Course.jpg" alt="Poster image" style="max-width: 100%; height: auto;">
+                    <p style="font-size: 16px; color: #555;">Best regards</p>
+                    <p style="font-size: 16px; color: #555;">ENIGMA-VSSUT</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="#" style="margin-right: 10px;"><img src="instagram-icon-url" alt="Instagram"></a>
+                    <a href="#" style="margin-right: 10px;"><img src="linkedin-icon-url" alt="LinkedIn"></a>
+                    <a href="#" style="margin-right: 10px;"><img src="github-icon-url" alt="GitHub"></a>
+                </div>
+            </body>
+            </html>
+            `,
+        };
+        
 
           fetch(`https://enigma-form.onrender.com/send-email`, {
             method: "POST",
