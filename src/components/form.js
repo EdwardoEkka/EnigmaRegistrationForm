@@ -182,7 +182,6 @@ const Form = () => {
         } else {
           setResponseData(response.data);
           toast.success("Registration successful!");
-
           const emailData = {
             to: formData.email,
             subject: "Thanking you for registration",
@@ -216,15 +215,19 @@ const Form = () => {
                     <p style="font-size: 16px; color: #555;">ENIGMA-VSSUT</p>
                 </div>
                 <div style="text-align: center; margin-top: 20px;">
-                    <a href="https://www.instagram.com/enigma_vssut/"  rel="noreferrer" target="_blank" style="margin-right: 10px;"><img src="https://e7.pngegg.com/pngimages/562/254/png-clipart-instagram-small-logo-social-media-icons.png" alt="Instagram"></a>
-                    <a href="https://www.linkedin.com/company/enigma-vssut/mycompany/"   rel="noreferrer" target="_blank" style="margin-right: 10px;"><img src="https://e7.pngegg.com/pngimages/524/809/png-clipart-computer-icons-resume-linkedin-logo-job-hunting-others-blue-angle.png" alt="LinkedIn"></a>
-                    
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <a href="https://www.instagram.com/enigma_vssut/" rel="noreferrer" target="_blank" style="margin-right: 10px;">
+                            <img src="/images/insta.png" alt="Instagram" style="width: 50px; height: auto;">
+                        </a>
+                        <a href="https://www.linkedin.com/company/enigma-vssut/mycompany/" rel="noreferrer" target="_blank" style="margin-right: 10px;">
+                            <img src="https://e7.pngegg.com/pngimages/524/809/png-clipart-computer-icons-resume-linkedin-logo-job-hunting-others-blue-angle.png" alt="LinkedIn" style="width: 50px; height: auto;">
+                        </a>
+                    </div>
                 </div>
             </body>
             </html>
             `,
-        };
-        
+          };
 
           fetch(`https://enigma-form.onrender.com/send-email`, {
             method: "POST",
@@ -445,7 +448,6 @@ const Form = () => {
                 InputLabelProps={{
                   style: { color: "white" },
                 }}
-               
               >
                 <MenuItem value="" disabled>
                   <em>Select Year</em>
@@ -497,7 +499,6 @@ const Form = () => {
               style: { color: "white" },
               focused: false,
             }}
-           
           />
           <TextField
             sx={{
