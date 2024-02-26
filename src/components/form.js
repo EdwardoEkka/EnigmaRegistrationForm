@@ -287,7 +287,7 @@ const Form = () => {
             id="name"
             autoComplete="off"
             label="Name"
-            value={formData.fname}
+            value={formData.name}
             onChange={(event) => handleInputChange(event, "name")}
             error={!!formErrors.name}
             helperText={formErrors.name}
