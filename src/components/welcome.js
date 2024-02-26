@@ -68,7 +68,7 @@ const Welcome = () => {
 
       <div>
         <Marquee direction="left">
-          <h3 data-text="REGISTRATION BEGINS 25th FEB ">
+          <h3 data-text="REGISTRATION BEGINS 27th FEB ">
             <span>REGISTRATION BEGINS 27th FEB</span>
           </h3>
         </Marquee>
