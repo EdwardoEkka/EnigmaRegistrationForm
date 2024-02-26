@@ -217,10 +217,10 @@ const Form = () => {
                 <div style="text-align: center; margin-top: 20px;">
                     <div style="display: flex; justify-content: center; align-items: center;">
                         <a href="https://www.instagram.com/enigma_vssut/" rel="noreferrer" target="_blank" ">
-                            <img src="https://cdn.mobilesyrup.com/wp-content/uploads/2022/05/Insta.jpg" alt="Instagram" style="width: 50px; height: 50px;">
+                            <img src="https://cdn.mobilesyrup.com/wp-content/uploads/2022/05/Insta.jpg" alt="Instagram" style="width: 60px; height: 70px; margin-left:5%">
                         </a>
                         <a href="https://www.linkedin.com/company/enigma-vssut/mycompany/" rel="noreferrer" target="_blank" ">
-                            <img src="https://icon-library.com/images/official-linkedin-icon-png/official-linkedin-icon-png-16.jpg" alt="LinkedIn" style="width: 50px; height: 50px;">
+                            <img src="https://icon-library.com/images/official-linkedin-icon-png/official-linkedin-icon-png-16.jpg" alt="LinkedIn" style="width: 60px; height: 70px;margin-right:5%">
                         </a>
                     </div>
                 </div>
