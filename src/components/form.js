@@ -187,24 +187,180 @@ const Form = () => {
             to: formData.email,
             subject: "Thanking you for registration  ",
             text: "Welcome To Enigma",
-            html: `    
-          <h1 style="text-align:center;">Thank You</h1>
-          <img src="https://i.postimg.cc/G2zKrspj/LIFT-OFF-C-Course.jpg" alt="Poster" style="max-width: 100%; height: auto;></img>
-          <p>Best regards,</p>
-          <p>Enigma-VSSUT</p>            
-          <div style={{ marginTop: "20px", display: "flex", justifyContent: "center" }}>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-instagram" style={{ fontSize: "24px", margin: "0 10px", color: "green" }}></i>
-          </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin" style={{ fontSize: "24px", margin: "0 10px", color: "green" }}></i>
-          </a>
-          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-twitter" style={{ fontSize: "24px", margin: "0 10px", color: "green" }}></i>
-          </a>
-        </div>
-      
-`,
+            html: `  <!DOCTYPE html>
+            <html lang="en">
+              <head>
+                <meta charset="UTF-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <!-- == google font == -->
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+                <!-- == icon == -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+                <!-- == css == -->
+
+
+                <style>
+              h1 {
+                color: #fff;
+                text-align: center;
+                margin: 3em 0;
+                font-size: 3em;
+              }
+              footer {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                color: #fff;
+                background: #121315;
+              }
+              footer ul {
+                list-style: none;
+              }
+              footer p {
+                color: #fff;
+                max-width: 25em;
+                font-size: 0.9em;
+                line-height: 23px;
+              }
+              footer a {
+                color: #fff;
+                text-decoration: none;
+              }
+              footer .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 2em;
+              }
+              .footer .container {
+                display: flex;
+                justify-content: space-between;
+                gap: 2em;
+              }
+              .brand {
+                display: block;
+                font-size: 1.8em;
+                font-weight: 600;
+                margin-bottom: 1em;
+              }
+              .media-icons li,
+              .services-icons li {
+                display: inline-block;
+                margin: 0.5em 0.5em 0.5em 0;
+              }
+              .media-icons a {
+                font-size: 1.1em;
+                width: 2em;
+                height: 2em;
+                border: 1px #fff solid;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.3s;
+              }
+              .media-icons a:hover {
+                background: #fff;
+                color: #111;
+              }
+              .services-icons a {
+                font-size: 1.6em;
+              }
+              .services-icons a:hover {
+                color: #94fbab;
+              }
+              .footer-bottom {
+                display: flex;
+                justify-content: center;
+                border-top: 1px solid rgba(138, 208, 153, 0.36);
+                padding: 2em;
+              }
+              .footer .menu {
+                margin-bottom: 1em;
+              }
+              .footer .menu li {
+                display: inline-block;
+                margin: 0 0.7em 0.7em 0;
+                text-align: center;
+              }
+              .footer .menu a {
+                transition: 0.3s;
+                font-weight: 600;
+              }
+              .footer .menu a:hover {
+                color: #94fbab;
+              }
+              .input-wrap {
+                margin: 1em 0;
+                display: flex;
+              }
+              .input-wrap input {
+                padding: 0.5em;
+                border: none;
+                background: #20232a;
+                color: #ccc;
+              }
+              .input-wrap input:focus {
+                outline: none;
+              }
+              .input-wrap button {
+                padding: 0.8em;
+                background: #94fbab;
+                border: none;
+                color: #217634;
+                transition: 0.3s;
+              }
+              .input-wrap button:hover {
+                background: #fff;
+                color: #111;
+              }
+              /* == responsive == */
+              @media screen and (max-width: 900px) {
+                .footer .container {
+                  flex-direction: column;
+                }
+              }
+              <style>
+                
+              </head>
+              <body>
+              
+               
+                <footer class="footer">
+                  <div class="container">
+                    <div class="col1">
+                      <a href="#" class="brand">Brand</a>
+                      <ul class="media-icons">
+                        <li>
+                          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa-brands fa-discord"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa-brands fa-github"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                   
+                  </div>
+                  <div class="footer-bottom">
+                    <div class="mekk">
+                      <p>@enigma_vssut 2024 - All Rights Reserved</p>
+                    </div>
+                  </div>
+                </footer>
+              </body>
+            </html>  
+           `,           
+          
+
           };
 
           fetch(`https://enigma-form.onrender.com/send-email`, {
