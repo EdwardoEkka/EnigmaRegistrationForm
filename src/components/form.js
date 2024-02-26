@@ -156,22 +156,24 @@ const Form = () => {
     setLoading(true);
     const uniqueNum = Date.now();
     const dateObject = new Date(uniqueNum);
-    console.log(inductionDomainP, inductionDomainS);
     const newItem = {
-      date: dateObject.toLocaleString(),
-      name: formData.name,
-      year: formData.year,
-      gender: formData.gender,
-      regd: formData.regd,
-      branch: formData.branch,
-      section: formData.section,
-      email: formData.email,
-      contact: formData.contact,
-      expectations: formData.expectations,
-      enigmaMotivation: enigma,
-      primary_domain: inductionDomainP,
-      secondary_domain: inductionDomainS,
+        date: dateObject.toLocaleString(),
+        name: formData.name,
+        year: formData.year,
+        gender: formData.gender,
+        regd: formData.regd,
+        branch: formData.branch,
+        section: formData.section,
+        email: formData.email,
+        contact: formData.contact,
+        expectations: formData.expectations,
+        enigmaMotivation: interest ? enigma : "",
+        primary_domain: interest ? inductionDomainP : "",
+        secondary_domain: interest ? inductionDomainS : "",
     };
+  
+
+
 
     axios
       .post("https://enigma-regd-backend.onrender.com/add-regn", newItem)
@@ -214,16 +216,6 @@ const Form = () => {
                     <p style="font-size: 16px; color: #555;">Best regards</p>
                     <p style="font-size: 16px; color: #555;">ENIGMA-VSSUT</p>
                 </div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <div style="display: flex; justify-content: center; align-items: center;">
-                        <a href="https://www.instagram.com/enigma_vssut/" rel="noreferrer" target="_blank" ">
-                            <img src="https://cdn.mobilesyrup.com/wp-content/uploads/2022/05/Insta.jpg" alt="Instagram" style="width: 60px; height: 70px; margin-left:5%">
-                        </a>
-                        <a href="https://www.linkedin.com/company/enigma-vssut/mycompany/" rel="noreferrer" target="_blank" ">
-                            <img src="https://icon-library.com/images/official-linkedin-icon-png/official-linkedin-icon-png-16.jpg" alt="LinkedIn" style="width: 60px; height: 70px;margin-right:5%">
-                        </a>
-                    </div>
-                </div>
             </body>
             </html>
             `,
@@ -251,6 +243,7 @@ const Form = () => {
             expectations: "",
             contact: "",
           });
+          setEnigma("");
           setInductionDomainP("");
           setInductionDomainS("");
           setInterest(false);
