@@ -210,7 +210,7 @@ const Form = () => {
             <body style="margin: 0; padding: 0; width: 100%; background-color: #f5f5f5;">
                 <div style="text-align: center;">
                     <h1 style="text-align:center; color: #333;">Thank You</h1>
-                    <p style="font-size: 16px;>We appreciate your interest to explore the world of C++. Your participation is invaluable to us. We await your presence in the <strong>Lift Off C++</strong> Info Session on <strong>11th March 2024</strong>. Stay tuned for updates.<p>
+                    <p style="font-size: 16px; margin-top:10px">We appreciate your interest to explore the world of C++. Your participation is invaluable to us. We await your presence in the <strong>Lift Off C++</strong> Info Session on <strong>11th March 2024</strong>. Stay tuned for updates.</p>
 
                     <a href="https://www.instagram.com/enigma_vssut/" target="_blank" style="text-decoration: none; margin-right: 10px;">
                     <img src="https://i.postimg.cc/wvJM1rMD/insta.png" alt="Instagram" style="width: 30px; height: 30px; vertical-align: middle;">
@@ -225,7 +225,7 @@ const Form = () => {
                     </a>
                 
                     <p style="font-size: 14px; color: #555;">Best regards,<br>ENIGMA-VSSUT</p>
-                    <p style="font-size: 5px; color: #777; margin-top: 20px;margin-bottom: 25px;">&copy; 2024 enigma_vssut. All rights reserved.</p>
+                    <p style="font-size: 9px; color: #777; margin-top: 20px;margin-bottom: 25px;">&copy; 2024 enigma_vssut. All rights reserved.</p>
 
                     
                     
