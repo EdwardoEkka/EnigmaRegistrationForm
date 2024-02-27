@@ -200,12 +200,10 @@ const Form = () => {
                         }
         
                         h1 {
-                            font-size: 24px !important;
+                            font-size: 25px !important;
                         }
         
-                        p {
-                            font-size: 14px !important;
-                        }
+                        
                     }
                 </style>
             </head>
@@ -225,7 +223,7 @@ const Form = () => {
                        
                     </a>
                 
-                    <p style="font-size: 16px; color: #555;">Best regards,<br>ENIGMA-VSSUT</p>
+                    <p style="font-size: 14px; color: #555;">Best regards,<br>ENIGMA-VSSUT</p>
                     <p style="font-size: 5px; color: #777; margin-top: 20px;margin-bottom: 25px;">&copy; 2024 enigma_vssut. All rights reserved.</p>
 
                     
