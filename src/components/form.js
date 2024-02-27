@@ -225,7 +225,7 @@ const Form = () => {
                     </a>
                 
                     <p style="font-size: 14px; color: #555;">Best regards,<br>ENIGMA-VSSUT</p>
-                    <p style="font-size: 9px; color: #777; margin-top: 20px;margin-bottom: 25px;">&copy; 2024 enigma_vssut. All rights reserved.</p>
+                    <p style="font-size: 12px; color: #777; margin-top: 20px;margin-bottom: 25px;">&copy; 2024 enigma_vssut. All rights reserved.</p>
 
                     
                     
