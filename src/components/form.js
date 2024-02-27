@@ -212,9 +212,28 @@ const Form = () => {
             <body style="margin: 0; padding: 0; width: 100%; background-color: #f5f5f5;">
                 <div style="text-align: center;">
                     <h1 style="text-align:center; color: #333;">Thank You</h1>
-                    <img src="https://i.postimg.cc/G2zKrspj/LIFT-OFF-C-Course.jpg" alt="Poster image" style="max-width: 100%; height: auto;">
-                    <p style="font-size: 16px; color: #555;">Best regards</p>
-                    <p style="font-size: 16px; color: #555;">ENIGMA-VSSUT</p>
+
+                    <a href="https://www.instagram.com/enigma_vssut/" target="_blank" style="text-decoration: none; margin-right: 10px;">
+                        <img src="https://i.postimg.cc/wvJM1rMD/insta.png" alt="Instagram" style="width: 30px; height: 30px; vertical-align: middle;">
+                        <span style="font-size: 12px; color: #555; vertical-align: middle; margin-left: 5px;">Follow on Instagram</span>
+                    </a>
+                    
+                  
+                    <a href="https://www.linkedin.com/company/enigma-vssut/mycompany/" target="_blank" style="text-decoration: none;">
+                        <img src="https://i.postimg.cc/wv9MsMdk/linkesin-removebg-preview.png" alt="LinkedIn" style="width: 30px; height: 30px; vertical-align: middle;">
+                        <span style="font-size: 12px; color: #555; vertical-align: middle; margin-left: 5px;">Follow on LinkedIn</span>
+                    </a>
+
+                    <p>
+                    <a href="https://enigmavssut.com/" target="_blank" style="text-decoration: none; color: #3498db; font-weight: bold;">Visit our Website</a>
+                </p>
+                
+                    <p style="font-size: 16px; color: #555;">Best regards,<br>ENIGMA-VSSUT</p>
+                    <p style="font-size: 12px; color: #777; margin-top: 20px;">&copy; 2024 enigma_vssut. All rights reserved.</p>
+
+                    
+                    
+        
                 </div>
             </body>
             </html>
