@@ -220,7 +220,7 @@ const Form = () => {
                     
                   
                     <a href="https://www.linkedin.com/company/enigma-vssut/mycompany/" target="_blank" style="text-decoration: none;">
-                        <img src="https://i.postimg.cc/cH2PTsyd/linkedin-removebg-preview-1.png" alt="LinkedIn" style="width: 70px; height: 40px; vertical-align: middle;">
+                        <img src="https://i.postimg.cc/cH2PTsyd/linkedin-removebg-preview-1.png" alt="LinkedIn" style="width: 65px; height: 40px; vertical-align: middle;">
                        
                     </a>
                 
