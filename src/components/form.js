@@ -213,7 +213,7 @@ const Form = () => {
                     <p style="font-size: 16px; margin-top:10px">We appreciate your interest to explore the world of C++. Your participation is invaluable to us. We await your presence in the <strong>Lift Off C++</strong> Info Session on <strong>11th March 2024</strong>. Stay tuned for updates.</p>
 
                     <a href="https://www.instagram.com/enigma_vssut/" target="_blank" style="text-decoration: none; margin-right: 10px;">
-                    <img src="https://i.postimg.cc/mkwbzfMB/Instagram-Logo-removebg-preview.png" alt="Instagram" style="width: 50px; height: 40px; vertical-align: middle;">
+                    <img src="https://i.postimg.cc/mkwbzfMB/Instagram-Logo-removebg-preview.png" alt="Instagram" style="width: 60px; height: 40px; vertical-align: middle;">
                       
                        
                     </a>
