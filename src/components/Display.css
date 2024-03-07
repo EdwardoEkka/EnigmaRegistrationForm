@@ -1,8 +1,8 @@
 
 
   .typewriter {
-   margin-top: 3%;
-    font-size: 115px;
+   /* margin-top: 1%; */
+    font-size: 105px;
     text-align: center;
     animation-name: example;
     animation-duration: 1s;
@@ -50,12 +50,13 @@
   
   h1.animated-shadow {
     color: white;
-    
+    height:4.5vw;
     font-size: 3vw; 
     text-shadow: .03em .03em 0 #000;
     position: relative;
     overflow: hidden;
     margin: 0;
+    
   }
   
   h1.animated-shadow:after {
@@ -96,8 +97,8 @@
 }
 
 .countdown-value {
-  margin-top: 3%;
-    font-size: 6vw;
+  /* margin-top: 3%; */
+    font-size: 5vw;
     font-weight: bold;
   
     color: #e3dbdb;

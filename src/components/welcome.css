@@ -8,7 +8,14 @@
  
   z-index: -1; 
 }
-
+.info{
+  color:white;
+  /* margin-top: 1%; */
+  /* margin-bottom: 1%; */
+  text-align: center;
+  /* margin-top: -10px; */
+  font-size: 5px;
+}
 @keyframes cursor {
   0%, 100% { 
       border-color: #e3dbdb; 
@@ -30,8 +37,8 @@
 h3 {
  
  
- height: 3vh;
-  font-size:2vw;
+ height: 1.5vh;
+  /* font-size:2vw; */
   color: #fff;
   letter-spacing: 0.02em;
   
@@ -46,6 +53,7 @@ h3 span {
  
   position: absolute;
   top: 0;
+  
   left: 0;
   transform: translate(-50%, -50%);
   -webkit-clip-path: polygon(10% 0%, 44% 0%, 70% 100%, 55% 100%);
@@ -196,4 +204,9 @@ h3::after {
 }
 h3{
   font-size:3vw;
+}
+.info{
+  font-size: 3vw;
+ 
+  margin-bottom: 4%;
 }
