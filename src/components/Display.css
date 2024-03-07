@@ -128,7 +128,8 @@
       margin-bottom: 15%;
     }
     h1.animated-shadow{
-      font-size: 22px;
+      font-size: 3vw;
+      /* height:0vw; */
       margin-top: 10%;
     }
 
