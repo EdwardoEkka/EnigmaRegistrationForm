@@ -50,7 +50,7 @@
   
   h1.animated-shadow {
     color: white;
-    height:4.5vw;
+    height:8.5vw;
     font-size: 3vw; 
     text-shadow: .03em .03em 0 #000;
     position: relative;
@@ -124,11 +124,11 @@
        
     }
     .countdown-timer{
-      margin-top: 15%;
+      margin-top: 25%;
       margin-bottom: 15%;
     }
     h1.animated-shadow{
-      font-size: 3vw;
+      font-size: 6vw;
       /* height:0vw; */
       margin-top: 10%;
     }
