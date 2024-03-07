@@ -207,7 +207,13 @@ h3{
   font-size:3vw;
 }
 .info{
-  font-size: 3vw;
+  font-size:50px;
  
   margin-bottom: 4%;
+}
+
+@media screen and (max-width: 600px){
+  .info{
+    font-size: 16px;
+  }
 }
