@@ -33,15 +33,7 @@ const Welcome = () => {
         <Matrix />
       </div>
 
-      {/* <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          borderRadius: 0.5,
-        }}
-      >
-        <img src={logo} alt="Logo" style={{ height: "80px", width: "80px" }} />
-      </div> */}
+      
 
       <div
         className="logo-container"
@@ -52,7 +44,7 @@ const Welcome = () => {
           zIndex: "999", 
         }}
       >
-        <a href="https://enigmavssut.com/" rel="noreferrer" target="_blank" ><img src={logo} alt="Logo" style={{ height: "80px", width: "80px" }} /></a>
+        <a href="https://dev.enigmavssut.com/" rel="noreferrer" target="_blank" ><img src={logo} alt="Logo" style={{ height: "80px", width: "80px" }} /></a>
       </div>
 
       
