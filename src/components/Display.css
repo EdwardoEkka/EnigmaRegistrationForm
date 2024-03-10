@@ -105,8 +105,10 @@
 }
 
 .countdown-label {
+
     font-size: 50px;
     color: #e71c1c;
+   
    
     
 }
@@ -137,7 +139,9 @@
       
     }
     .countdown-label{
-      font-size: 19px;
+      margin-top: 5%;
+      font-size: 40px;
+      margin-bottom: 10%;
     }
 
    
