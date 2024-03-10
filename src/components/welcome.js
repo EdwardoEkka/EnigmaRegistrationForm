@@ -84,7 +84,7 @@ const Welcome = () => {
       >
         <button
         className="button-71"
-          style={{ marginBottom: "3px" }}
+          style={{ marginBottom: "3px",Display:"none" }}
           onClick={() => {
             navigate("/form");
           }}
