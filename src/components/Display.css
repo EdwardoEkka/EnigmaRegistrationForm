@@ -49,6 +49,7 @@
   
   
   h1.animated-shadow {
+    visibility: hidden;
     color: white;
     height:8.5vw;
     font-size: 3vw; 
