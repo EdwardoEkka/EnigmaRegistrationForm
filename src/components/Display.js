@@ -25,7 +25,7 @@ const Display = ({ days, hours, minutes, seconds }) => {
           <div className="countdown-label">Seconds</div>
         </div>
       </div> */}
-      <div className="countdown-label">Time's up</div>
+      <div className="countdown-label">Time's up!!</div>
     </div>
   );
 };
