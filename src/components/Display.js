@@ -14,7 +14,7 @@ const Display = ({ days, hours, minutes, seconds }) => {
         </div>
         <div className="countdown-item">
           <div className="countdown-value">{hours}</div>
-          <div className="countdown-label">Hours</div>
+          <div className="countdown-label">Hour</div>
         </div>
         <div className="countdown-item">
           <div className="countdown-value">{minutes}</div>
