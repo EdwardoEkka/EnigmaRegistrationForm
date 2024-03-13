@@ -16,10 +16,10 @@ import logo from "../components/images/EnigmaLogo.png";
 
 const Form = () => {
   const [responseData, setResponseData] = useState(null);
-  const [interest, setInterest] = useState(false);
+  // const [interest, setInterest] = useState(false);
   const [inductionDomainS, setInductionDomainS] = useState("");
   const [inductionDomainP, setInductionDomainP] = useState("");
-  const [enigma, setEnigma] = useState("");
+  // const [enigma, setEnigma] = useState("");
   const [loading, setLoading] = useState(false);
   const inductionDomainOptionsS = [
     "Web Dev",
@@ -51,7 +51,7 @@ const Form = () => {
     section: "",
     email: "",
     contact: "",
-    expectations: "",
+    // expectations: "",
   });
   const [formErrors, setFormErrors] = useState({
     name: "",
@@ -62,7 +62,7 @@ const Form = () => {
     section: "",
     email: "",
     contact: "",
-    expectations: "",
+    // expectations: "",
   });
 
   const branchOptions = [
@@ -167,9 +167,9 @@ const Form = () => {
         email: formData.email,
         contact: formData.contact,
         expectations: formData.expectations,
-        enigmaMotivation: interest ? enigma : "",
-        primary_domain: interest ? inductionDomainP : "",
-        secondary_domain: interest ? inductionDomainS : "",
+        // enigmaMotivation: interest ? enigma : "",
+        primary_domain:  formData.inductionDomainP ,
+        secondary_domain:  formData.inductionDomainS,
     };
   
 
@@ -210,19 +210,20 @@ const Form = () => {
             <body style="margin: 0; padding: 0; width: 100%; background-color: #f5f5f5;">
                 <div style="text-align: center;">
                     <h1 style="text-align:center; color: #333;">Thank You</h1>
-                    <p style="font-size: 16px; margin-top:10px">We appreciate your interest to explore the world of C++. Your participation is invaluable to us. We await your presence in the <strong>Lift Off C++</strong> Info Session on <strong>11th March 2024</strong>. Stay tuned for updates.</p>
+                    <p style="font-size: 16px; margin-top:10px">We appreciate your interest for taking part of<strong>Induction Process</strong>. Stay tuned for updates.</p>
 
                     <a href="https://www.instagram.com/enigma_vssut/" target="_blank" style="text-decoration: none; margin-right: 10px;">
                     <img src="https://i.postimg.cc/mkwbzfMB/Instagram-Logo-removebg-preview.png" alt="Instagram" style="width: 70px; height: 40px; vertical-align: middle;">
-                      
                        
                     </a>
                     
                   
                     <a href="https://www.linkedin.com/company/enigma-vssut/mycompany/" target="_blank" style="text-decoration: none;">
                         <img src="https://i.postimg.cc/cH2PTsyd/linkedin-removebg-preview-1.png" alt="LinkedIn" style="width: 65px; height: 40px; vertical-align: middle;">
+                        </a>    
                        
-                    </a>
+                   
+                    <p style="margin-top:6px;">join our discord channel - <a href="https://discord.gg/ds8A8Y2g">https://discord.gg/ds8A8Y2g</a></p>
                 
                     <p style="font-size: 14px; color: #555;">Best regards,<br>ENIGMA-VSSUT</p>
                     <p style="font-size: 12px; color: #777; margin-top: 20px;margin-bottom: 25px;">&copy; 2024 enigma_vssut. All rights reserved.</p>
@@ -255,13 +256,13 @@ const Form = () => {
             branch: "",
             section: "",
             email: "",
-            expectations: "",
+            // expectations: "",
             contact: "",
           });
-          setEnigma("");
+          // setEnigma("");
           setInductionDomainP("");
           setInductionDomainS("");
-          setInterest(false);
+          // setInterest(false);
         }
       })
       .catch((error) => {
@@ -707,7 +708,7 @@ const Form = () => {
             }}
           />
 
-          <TextField
+          {/* <TextField
             sx={{
               "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
                 border: "1px solid white",
@@ -746,7 +747,7 @@ const Form = () => {
               style: { color: "white" },
               focused: false,
             }}
-          />
+          /> */}
 
           <div
             style={{
@@ -755,22 +756,22 @@ const Form = () => {
               gap: "10px",
             }}
           >
-            <span>
+            {/* <span>
               <input
                 type="checkbox"
                 checked={interest}
                 onChange={() => setInterest(!interest)}
                 style={{ margin: 0, padding: 0 }}
               />
-            </span>
+            </span> */}
 
-            <span style={{ color: "white", marginBottom: "10px" }}>
+            {/* <span style={{ color: "white", marginBottom: "10px" }}>
               Interested to take part in Enigma Induction?
-            </span>
+            </span> */}
           </div>
-          {interest && (
+          {/* {interest && ( */}
             <div style={{ marginTop: "10px", marginBottom: "10px" }}>
-              <TextField
+              {/* <TextField
                 sx={{
                   "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
                     border: "1px solid white",
@@ -807,7 +808,7 @@ const Form = () => {
                   style: { color: "white" },
                   focused: false,
                 }}
-              />
+              /> */}
 
               <div
                 style={{
@@ -945,7 +946,7 @@ const Form = () => {
                 </FormControl>
               </div>
             </div>
-          )}
+          {/* )} */}
 
           <button
             className="button-18"
