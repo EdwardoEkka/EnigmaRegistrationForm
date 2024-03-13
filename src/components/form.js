@@ -210,7 +210,7 @@ const Form = () => {
             <body style="margin: 0; padding: 0; width: 100%; background-color: #f5f5f5;">
                 <div style="text-align: center;">
                     <h1 style="text-align:center; color: #333;">Thank You</h1>
-                    <p style="font-size: 16px; margin-top:10px">We appreciate your interest for taking part of<strong>Induction Process</strong>. Stay tuned for updates.</p>
+                    <p style="font-size: 16px; margin-top:10px">We appreciate your interest for taking part in<strong> Induction Process</strong>. For further updates regarding your tasks for the Induction process of <strong>Enigma</strong> kindly join the Enigma discord channel <a href="https://discord.gg/ds8A8Y2g">https://discord.gg/ds8A8Y2g</a> </p>
 
                     <a href="https://www.instagram.com/enigma_vssut/" target="_blank" style="text-decoration: none; margin-right: 10px;">
                     <img src="https://i.postimg.cc/mkwbzfMB/Instagram-Logo-removebg-preview.png" alt="Instagram" style="width: 70px; height: 40px; vertical-align: middle;">
@@ -223,7 +223,7 @@ const Form = () => {
                         </a>    
                        
                    
-                    <p style="margin-top:6px;">join our discord channel - <a href="https://discord.gg/ds8A8Y2g">https://discord.gg/ds8A8Y2g</a></p>
+      
                 
                     <p style="font-size: 14px; color: #555;">Best regards,<br>ENIGMA-VSSUT</p>
                     <p style="font-size: 12px; color: #777; margin-top: 20px;margin-bottom: 25px;">&copy; 2024 enigma_vssut. All rights reserved.</p>
