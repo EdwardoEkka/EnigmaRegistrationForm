@@ -168,8 +168,8 @@ const Form = () => {
         contact: formData.contact,
         expectations: formData.expectations,
         // enigmaMotivation: interest ? enigma : "",
-        primary_domain:  formData.inductionDomainP ,
-        secondary_domain:  formData.inductionDomainS,
+        primary_domain:  inductionDomainP ,
+        secondary_domain: inductionDomainS,
     };
   
 
